@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "my site",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"no test yet...\"",
     "dev": "next dev --turbopack",
