@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Portfolio",
+  name: "welcome...",
   description: "Hey, I'm Soumil, Welcome",
   navItems: [
     {
@@ -48,10 +48,7 @@ export const siteConfig = {
     },
   ],
   links: {
-    github: "https://github.com/heroui-inc/heroui",
-    twitter: "https://twitter.com/hero_ui",
-    docs: "https://heroui.com",
-    discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
+    github: "https://github.com/soumil4561",
+    // docs: "https://soumil4561.github.io",
   },
 };

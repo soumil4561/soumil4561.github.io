@@ -1,9 +1,8 @@
 import "@/styles/globals.css";
-import clsx from "clsx";
 import { Metadata, Viewport } from "next";
+import { ThemeProvider } from "next-themes";
 
 import { siteConfig } from "@/config/site";
-import { Providers } from "@/app/providers";
 
 export const metadata: Metadata = {
   title: {
@@ -39,28 +38,14 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html suppressHydrationWarning lang="en">
       <head />
-      <body
-        className={clsx(
-          "min-h-screen text-foreground bg-background antialiased",
-        )}
-      >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
-            {/* <Navbar /> */}
-            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
-              {children}
-            </main>
-            <footer className="w-full flex items-center justify-center py-3" />
-          </div>
-        </Providers>
+      <body>
+        <ThemeProvider attribute="class" enableSystem={true}>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

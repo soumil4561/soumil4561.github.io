@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@config "../tailwind.config.js";
+@config "../tailwind.config.mjs";
 
 @font-face {
   font-family: "Chillax";
@@ -17,5 +17,7 @@
 }
 
 @theme {
-  --font-headings: "Satoshi", sans-serif
+  /* Fonts */
+  --font-heading: "Satoshi", sans-serif;
+  --font-content: "Chillax", sans-serif;
 }
