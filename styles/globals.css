@@ -21,3 +21,13 @@
   --font-heading: "Satoshi", sans-serif;
   --font-content: "Chillax", sans-serif;
 }
+
+@layer components {
+  .page-heading {
+    @apply font-heading text-5xl 
+  }
+
+  .section {
+    @apply flex flex-col items-center pt-16 justify-around
+  }
+}
