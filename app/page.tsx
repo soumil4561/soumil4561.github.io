@@ -8,7 +8,7 @@ export default function App() {
   return (
     <div className="relative flex flex-col min-h-screen">
       <div className="h-16" />
-      <main className="container mx-auto max-w-7xl px-6 flex-grow">
+      <main className="container mx-auto max-w-8xl px-6 flex-grow">
         <Home />
         <About />
         <Experience />
