@@ -22,9 +22,28 @@
   --font-content: "Chillax", sans-serif;
 }
 
+@layer base {
+  .dark {
+    --default: #dac5a7;
+    --primary: #e0cfb6;
+    --secondary: #f0ddc3;
+    --success: #97d7d9;
+    --warning: #f2dec7;
+    --danger: #ff9eab;
+    --background: #0e0e0e;
+    --background-secondary: #1a1a1a;
+    --border: #dac4a415;
+    --foreground: #dac5a7;
+  }
+}
+
 @layer components {
   .page-heading {
-    @apply font-heading text-5xl 
+    @apply font-heading text-7xl  mb-2 lg:mb-8
+  }
+
+  .page-heading-subtitle {
+    @apply font-content font-light text-sm mb-8 lg:mb-16
   }
 
   .section {

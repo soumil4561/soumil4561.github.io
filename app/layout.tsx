@@ -42,9 +42,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html suppressHydrationWarning lang="en">
       <head />
-      <body>
+      <body className="transition-colors duration-300">
         <ThemeProvider attribute="class" enableSystem={true}>
-          {children}
+          <div className="bg-background text-foreground min-h-screen">
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>
