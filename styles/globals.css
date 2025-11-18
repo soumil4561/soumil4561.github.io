@@ -10,6 +10,13 @@
 }
 
 @font-face {
+  font-family: "JetbrainsMono";
+  src: url("../public/fonts/JetBrainsMono-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "Satoshi";
   src: url("../public/fonts/Satoshi-Variable.ttf") format("truetype");
   font-weight: 100 900;
@@ -20,6 +27,7 @@
   /* Fonts */
   --font-heading: "Satoshi", sans-serif;
   --font-content: "Chillax", sans-serif;
+  --font-mono: "JetbrainsMono"
 }
 
 @layer base {
@@ -37,13 +45,40 @@
   }
 }
 
+/* Base prose overrides */
+.prose {
+  --tw-prose-body: var(--foreground);
+  --tw-prose-headings: var(--foreground);
+  --tw-prose-links: var(--primary);
+  --tw-prose-bold: var(--foreground);
+  --tw-prose-counters: var(--primary);
+  --tw-prose-bullets: var(--primary);
+  --tw-prose-quotes: var(--primary);
+  --tw-prose-code: var(--primary);
+  --tw-prose-pre-bg: var(--background-secondary);
+  --tw-prose-pre-code: var(--primary);
+}
+
+/* Dark mode */
+.dark .prose {
+  --tw-prose-body: var(--foreground);
+  --tw-prose-headings: var(--foreground);
+  --tw-prose-links: var(--primary);
+  --tw-prose-bold: var(--foreground);
+  --tw-prose-quotes: var(--primary);
+  --tw-prose-code: var(--primary);
+  --tw-prose-pre-bg: var(--background-secondary);
+  --tw-prose-pre-code: var(--primary);
+}
+
+
 @layer components {
   .page-heading {
-    @apply font-heading text-7xl  mb-2 lg:mb-8
+    @apply font-heading text-7xl  mb-2 lg:mb-8 text-center
   }
 
   .page-heading-subtitle {
-    @apply font-content font-light text-sm mb-8 lg:mb-16
+    @apply font-content font-light text-sm mb-8 lg:mb-16 text-center
   }
 
   .section {

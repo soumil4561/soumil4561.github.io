@@ -3,7 +3,10 @@ import { useEffect } from "react";
 import { useTheme } from "next-themes";
 
 export function useSectionTheme(
-  sections: { ref: React.RefObject<HTMLElement | null>; theme?: "light" | "dark" }[]
+  sections: {
+    ref: React.RefObject<HTMLElement | null>;
+    theme?: "light" | "dark";
+  }[],
 ) {
   const { setTheme, systemTheme } = useTheme();
 
@@ -24,7 +27,7 @@ export function useSectionTheme(
             }
           }
         },
-        { threshold: 0.5 }
+        { threshold: 0.5 },
       );
 
       observer.observe(ref.current);

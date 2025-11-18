@@ -1,8 +1,8 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
-import { ThemeProvider } from "next-themes";
 
 import { siteConfig } from "@/config/site";
+import ClientProviders from "@/app/providers";
 
 export const metadata: Metadata = {
   title: {
@@ -10,25 +10,7 @@ export const metadata: Metadata = {
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      {
-        url: "/android-chrome-192x192.png",
-        sizes: "192x192",
-        type: "image/png",
-      },
-      {
-        url: "/android-chrome-512x512.png",
-        sizes: "512x512",
-        type: "image/png",
-      },
-    ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
-  },
-  manifest: "/site.webmanifest",
+  icons: { icon: [{ url: "/favicon.ico" }] },
 };
 
 export const viewport: Viewport = {
@@ -38,16 +20,19 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html suppressHydrationWarning lang="en">
-      <head />
       <body className="transition-colors duration-300">
-        <ThemeProvider attribute="class" enableSystem={true}>
+        <ClientProviders>
           <div className="bg-background text-foreground min-h-screen">
             {children}
           </div>
-        </ThemeProvider>
+        </ClientProviders>
       </body>
     </html>
   );
