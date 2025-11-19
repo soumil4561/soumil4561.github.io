@@ -1,12 +1,17 @@
+export const dynamicParams = false;
+
 import { serialize } from "next-mdx-remote-client/serialize";
+import { notFound } from "next/navigation";
 
 import MDXRenderer from "@/components/mdx/MDXRenderer";
-import { getPostBySlug, getPostSlugs } from "@/lib/blog/posts";
+import { getAllPosts, getPostBySlug } from "@/lib/blog/posts";
 
 export async function generateStaticParams() {
-  const slugs = await getPostSlugs();
+  const posts = await getAllPosts();
 
-  return slugs.map((slug) => ({ slug }));
+  return posts
+    .filter((p) => p.frontmatter.published)
+    .map((p) => ({ slug: p.slug }));
 }
 
 export default async function BlogPost({
@@ -16,6 +21,11 @@ export default async function BlogPost({
 }) {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
+
+  // check if post not found or is not published?
+  if (post == null || !post.frontmatter.published) {
+    notFound();
+  }
 
   const mdxSource = await serialize({ source: post.content });
 
