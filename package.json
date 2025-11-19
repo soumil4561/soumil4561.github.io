@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"no test yet...\"",
+    "build-index": "node scripts/gen-search-index.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
