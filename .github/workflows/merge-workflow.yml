@@ -41,9 +41,6 @@ jobs:
       - name: Build static site
         run: npm run build
 
-      - name: Build Search Index
-        run: npm run build-index
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
