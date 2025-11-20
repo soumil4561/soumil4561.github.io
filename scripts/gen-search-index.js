@@ -3,7 +3,8 @@ import path from "path";
 import matter from "gray-matter";
 
 const POSTS_PATH = path.join(process.cwd(), "content/blog/pages");
-const OUTPUT_PATH = path.join(process.cwd(), "public/search-index.json");
+const OUTPUT_PATH = "public/search-index.json";
+const FULL_OUTPUT_PATH = path.join(process.cwd(), OUTPUT_PATH)
 
 function getAllFiles(dir) {
     let results = [];
@@ -52,7 +53,7 @@ function buildSearchIndex() {
         })
         .filter(Boolean);
 
-    fs.writeFileSync(OUTPUT_PATH, JSON.stringify(index, null, 2));
+    fs.writeFileSync(FULL_OUTPUT_PATH, JSON.stringify(index, null, 2));
 
     const end = performance.now();
     const durationMs = (end - start).toFixed(2);
@@ -63,7 +64,7 @@ Search index generated successfully!
 Total MD/MDX files found:   ${allFiles.length}
 Published posts indexed:    ${publishedCount}
 Draft/unpublished skipped:  ${skippedCount}
-Output file:                public/search-index.json
+Output file:                ${OUTPUT_PATH}
 Time taken:              ${durationMs} ms
 ----------------------------------------
 `);
