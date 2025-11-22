@@ -23,6 +23,7 @@ export default {
         foreground: "var(--foreground)",
         backgroundSecondary: "var(--background-secondary)",
         border: "var(--border)",
+        inverse: "var(--inverse)"
       },
       typography: {
         DEFAULT: {
