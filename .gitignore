@@ -37,3 +37,4 @@ next-env.d.ts
 
 #the search index
 public/search-index.json
+public/blog-index.json
