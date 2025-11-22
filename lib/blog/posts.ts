@@ -76,7 +76,7 @@ export async function getAllPosts(): Promise<Post[]> {
   const files = await getAllPostFiles();
 
   const posts = await Promise.all(
-    files.map((filePath) => getPostFromFile(filePath))
+    files.map((filePath) => getPostFromFile(filePath)),
   );
 
   return posts;

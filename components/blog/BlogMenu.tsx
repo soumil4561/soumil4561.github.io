@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { PrimaryButton, DefaultButton } from "@/components/button/Button";
+import { DefaultButton } from "@/components/button/Button";
 import BlogPreview from "@/components/blog/BlogPreview";
 
 export type BlogItemMetadata = {
