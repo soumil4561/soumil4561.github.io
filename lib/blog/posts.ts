@@ -1,4 +1,3 @@
-import fs from "fs";
 import fsp from "fs/promises";
 import path from "path";
 
@@ -23,9 +22,20 @@ export type Post = {
   content: string;
 };
 
-function getAllPostFiles(): string[] {
-  return fs
-    .readdirSync(POSTS_PATH)
+/**
+ * Retrieves all `.mdx` post files from the posts directory.
+ *
+ * Reads the `POSTS_PATH` directory asynchronously, filters out only
+ * MDX files, and returns their absolute file paths.
+ *
+ * @async
+ * @function getAllPostFiles
+ * @returns {Promise<string[]>} A promise resolving to an array of absolute file paths.
+ */
+async function getAllPostFiles(): Promise<string[]> {
+  const files = await fsp.readdir(POSTS_PATH);
+
+  return files
     .filter((f) => f.endsWith(".mdx"))
     .map((f) => path.join(POSTS_PATH, f));
 }
@@ -52,8 +62,18 @@ export async function getPostFromFile(fullPath: string): Promise<Post> {
   };
 }
 
+/**
+ * Loads and returns all blog posts from disk.
+ *
+ * Reads all `.mdx` post files, parses each one into a `Post` object,
+ * and returns the complete list. Order is determined by the filesystem.
+ *
+ * @async
+ * @function getAllPosts
+ * @returns {Promise<Post[]>} A promise resolving to an array of parsed posts.
+ */
 export async function getAllPosts(): Promise<Post[]> {
-  const files = getAllPostFiles();
+  const files = await getAllPostFiles();
 
   const posts = await Promise.all(
     files.map((filePath) => getPostFromFile(filePath)),
