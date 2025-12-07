@@ -5,24 +5,28 @@ export const siteConfig = {
   description: "Hey, I'm Soumil, Welcome",
   navItems: [
     {
-      label: "Home",
+      label: "Resume",
       href: "/",
+      type: "label",
+      hidden: false,
     },
     {
       label: "About",
       href: "/about",
-    },
-    {
-      label: "Projects",
-      href: "/projects",
+      type: "label",
+      hidden: false,
     },
     {
       label: "Blog",
       href: "/blog",
+      type: "label",
+      hidden: true,
     },
     {
       label: "Let's Talk",
       href: "/contact",
+      type: "primary-btn",
+      hidden: false,
     },
   ],
   navMenuItems: [
