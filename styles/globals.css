@@ -40,7 +40,8 @@
     --danger: #ff9eab;
     --background: #0e0e0e;
     --background-secondary: #1a1a1a;
-    --border: #dac4a415;
+    --background-tertiary: #dac5a705;
+    --border: #dac5a715;
     --foreground: #dac5a7;
     --inverse: #1d1e1f;
   }

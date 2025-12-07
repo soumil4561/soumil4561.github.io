@@ -8,7 +8,7 @@ export default function BlogPreview(post: BlogItemMetadata) {
       className="
         flex flex-col 
         border-2 border-border 
-        mx-4 my-2 md:my-4 
+        my-2 md:my-4 
         py-8 px-8 
         bg-background-secondary/80 
         

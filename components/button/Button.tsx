@@ -30,7 +30,7 @@ export function PrimaryButton(props: ButtonParams) {
     <BaseButton
       {...props}
       className={`
-        bg-secondary/80 text-inverse 
+        bg-secondary/90 text-inverse 
         hover:bg-secondary 
         transition duration-200 
         ${props.className ?? ""}

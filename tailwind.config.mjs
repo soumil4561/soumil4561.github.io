@@ -22,6 +22,7 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         backgroundSecondary: "var(--background-secondary)",
+        backgroundTertiary: "var(--background-tertiary)",
         border: "var(--border)",
         inverse: "var(--inverse)"
       },
