@@ -23,25 +23,27 @@ export default {
         foreground: "var(--foreground)",
         backgroundSecondary: "var(--background-secondary)",
         backgroundTertiary: "var(--background-tertiary)",
+        backgroundTertiaryHover: "var(--background-tertiary-hover)",
         border: "var(--border)",
-        inverse: "var(--inverse)"
+        borderHover: "var(--border-hover)",
+        inverse: "var(--inverse)",
       },
       typography: {
         DEFAULT: {
           css: {
-            '&&': {
+            "&&": {
               fontFamily: "var(--font-content)",
               color: "var(--default)",
             },
 
             // Headings use heading font
-            '&& h1, && h2, && h3, && h4, && h5, && h6': {
+            "&& h1, && h2, && h3, && h4, && h5, && h6": {
               fontFamily: "var(--font-heading)",
               color: "var(--foreground)",
             },
 
             // Code blocks
-            '&& pre': {
+            "&& pre": {
               fontFamily: "var(--font-mono)",
               backgroundColor: "var(--background-secondary)",
               color: "var(--primary)",
@@ -50,7 +52,7 @@ export default {
             },
 
             // Inline code
-            '&& code': {
+            "&& code": {
               fontFamily: "var(--font-code)",
               backgroundColor: "var(--background-secondary)",
               padding: "0.2rem 0.4rem",
@@ -58,21 +60,21 @@ export default {
             },
 
             // Blockquotes
-            '&& blockquote': {
+            "&& blockquote": {
               fontFamily: "var(--font-quote, var(--font-content))",
               color: "var(--primary)",
               borderColor: "var(--primary)",
             },
 
             // Links
-            '&& a': {
+            "&& a": {
               color: "var(--primary)",
               textDecoration: "underline",
               fontWeight: "500",
             },
 
             // Lists
-            '&& li::marker': {
+            "&& li::marker": {
               color: "var(--primary)",
             },
           },
@@ -80,19 +82,19 @@ export default {
 
         dark: {
           css: {
-            '&&': {
+            "&&": {
               color: "var(--default)",
             },
 
-            '&& pre': {
+            "&& pre": {
               backgroundColor: "var(--background-secondary)",
             },
 
-            '&& code': {
+            "&& code": {
               backgroundColor: "var(--background-secondary)",
             },
 
-            '&& blockquote': {
+            "&& blockquote": {
               color: "var(--primary)",
               borderColor: "var(--primary)",
             },

@@ -63,6 +63,11 @@ export const siteConfig = {
         hidden: false,
         logoSlug: "linkedin",
       },
+      resume: {
+        link: "/resume.pdf",
+        hidden: false,
+        logoSlug: "pdf",
+      },
     },
     pages: [
       {

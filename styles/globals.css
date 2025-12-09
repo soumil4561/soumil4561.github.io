@@ -41,7 +41,9 @@
     --background: #0e0e0e;
     --background-secondary: #1a1a1a;
     --background-tertiary: #dac5a705;
+    --background-tertiary-hover: #dac5a510;
     --border: #dac5a715;
+    --border-hover: #dac5a730;
     --foreground: #dac5a7;
     --inverse: #1d1e1f;
   }
