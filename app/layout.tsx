@@ -4,6 +4,7 @@ import { Metadata, Viewport } from "next";
 import { siteConfig } from "@/config/site";
 import ClientProviders from "@/app/providers";
 import Navbar from "@/components/navbar/Navbar";
+import Footer from "@/components/footer/Footer";
 
 export const metadata: Metadata = {
   title: {
@@ -36,7 +37,7 @@ export default function RootLayout({
                 <Navbar items={siteConfig.navItems} />
                 {children}
               </main>
-              <footer className="w-full flex items-center justify-center py-3" />
+              <Footer />
             </div>
           </div>
         </ClientProviders>

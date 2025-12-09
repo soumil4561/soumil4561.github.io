@@ -44,8 +44,8 @@ export function DefaultButton(props: ButtonParams) {
     <BaseButton
       {...props}
       className={`
-        bg-background-secondary/80 
-        hover:bg-background-secondary 
+        bg-background-tertiary
+        hover:bg-background-tertiary-hover
         transition duration-200 
         ${props.className ?? ""}
       `}

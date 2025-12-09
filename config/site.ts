@@ -20,7 +20,7 @@ export const siteConfig = {
       label: "Blog",
       href: "/blog",
       type: "label",
-      hidden: true,
+      hidden: false,
     },
     {
       label: "Let's Talk",
@@ -51,6 +51,43 @@ export const siteConfig = {
       href: "/contact",
     },
   ],
+  footer: {
+    socialLinks: {
+      github: {
+        link: "https://github.com/soumil4561",
+        hidden: false,
+        logoSlug: "github",
+      },
+      linkedin: {
+        link: "https://linkedin.com/in/soumil4561",
+        hidden: false,
+        logoSlug: "linkedin",
+      },
+      resume: {
+        link: "/resume.pdf",
+        hidden: false,
+        logoSlug: "pdf",
+      },
+    },
+    pages: [
+      {
+        name: "home",
+        href: "/",
+      },
+      {
+        name: "about",
+        href: "/about",
+      },
+      {
+        name: "blog",
+        href: "/blog",
+      },
+      {
+        name: "contact",
+        href: "/contact",
+      },
+    ],
+  },
   links: {
     github: "https://github.com/soumil4561",
     // docs: "https://soumil4561.github.io",
