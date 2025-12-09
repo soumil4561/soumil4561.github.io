@@ -96,6 +96,7 @@ export default function Navbar(props: NavbarProps) {
               key={index}
               {...item}
               className="py-2 text-lg tracking-wide"
+              navMenuStateUpdater={setOpen}
             />
           ))}
         </div>
