@@ -1,3 +1,5 @@
+"use client";
+
 type ButtonParams = {
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
@@ -15,7 +17,7 @@ function BaseButton({
 }: ButtonParams) {
   return (
     <button
-      className={`uppercase p-4 rounded-sm tracking-wider border-2 border-border ${className}`}
+      className={`uppercase p-4 rounded-xs tracking-wider border-2 border-border ${className}`}
       disabled={disabled}
       type={type}
       onClick={onClickExecutor ?? (() => {})}

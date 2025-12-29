@@ -90,6 +90,10 @@ export const siteConfig = {
   },
   links: {
     github: "https://github.com/soumil4561",
+    linkedin: "https://linkedin.com/in/soumil4561",
+    mail: "mailto:soumil4561@gmail.com",
+    pgp: "/soumil4561-pgp-public.asc",
+    resume: "/resume.pdf",
     // docs: "https://soumil4561.github.io",
   },
   extendedDescription: `I’m Soumil Singh, a software engineer currently based in Bangalore, who enjoys building efficient, scalable systems and exploring how things work under the hood.\n

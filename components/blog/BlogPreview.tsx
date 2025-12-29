@@ -1,21 +1,24 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { BlogItemMetadata } from "@/components/blog/BlogMenu";
 
 export default function BlogPreview(post: BlogItemMetadata) {
   return (
-    <div
+    <Link
       className="
         flex flex-col 
         border-2 border-border 
         my-2 md:my-4 
         py-8 px-8 
-        bg-background-secondary/80 
+        bg-background-tertiary
         
-        transition-all duration-300 ease-out
-        hover:bg-background-secondary
+        transition-all duration-400 ease-in
+        hover:bg-background-tertiary-hover
+        hover:border-border-hover
         hover:shadow-lg 
       "
+      href={`/blog/${post.slug}`}
     >
       <Image
         alt="/blog/first-post/dock.png" //should have a default fallback here
@@ -30,6 +33,6 @@ export default function BlogPreview(post: BlogItemMetadata) {
       <h1 className="font-heading text-2xl font-normal mb-2">{post.title}</h1>
 
       <p className="font-content font-light opacity-90">{post.description}</p>
-    </div>
+    </Link>
   );
 }

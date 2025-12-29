@@ -35,7 +35,7 @@ export default function NavItem({
     case "default-btn":
       return (
         <DefaultButton
-          className={`py-0 mx-4 tracking-wider text-sm ${className}`}
+          className={`py-2 px-4 ml-4 tracking-wider text-[0.8125rem] ${className}`}
           text={label}
           onClickExecutor={handleClick}
         />
@@ -43,7 +43,7 @@ export default function NavItem({
     case "primary-btn":
       return (
         <PrimaryButton
-          className={`py-0 px-4 mx-4 tracking-wider text-sm ${className}`}
+          className={`py-2 px-4 ml-4 tracking-wider text-[0.8125rem] ${className}`}
           text={label}
           onClickExecutor={handleClick}
         />
@@ -52,15 +52,17 @@ export default function NavItem({
     case "label":
       return (
         <Link
-          className={`uppercase 
-            relative inline-block
-             md:after:content-[''] md:after:absolute md:after:left-0 md:after:bottom-0
-             md:after:h-0.5 md:after:w-full
-             md:after:scale-x-0 md:after:origin-right
-             md:after:bg-default/80
-             md:after:transition-transform md:after:duration-500 md:after:ease-out
-             md:hover:after:scale-x-100 md:hover:after:origin-left
-            mx-4 py-2 text-center tracking-wider font-light text-sm ${className}`}
+          className={`
+            uppercase relative flex items-center justify-center mx-1 my-2
+            text-center tracking-wider font-light text-[0.8125rem]
+            md:after:content-['']
+            md:after:absolute md:after:left-0 md:after:-bottom-0.5
+            md:after:h-[1px] md:after:w-full
+            md:after:scale-x-0 md:after:origin-right
+            md:after:bg-default/80
+            md:after:transition-transform md:after:duration-400 md:after:ease-out
+            md:hover:after:scale-x-100 md:hover:after:origin-left
+            ${className} `}
           href={href}
           onClick={() => navMenuStateUpdater?.(false)}
         >

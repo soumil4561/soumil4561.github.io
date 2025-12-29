@@ -30,14 +30,14 @@ export default function Navbar(props: NavbarProps) {
       <NavbarLogo />
 
       {/* Desktop Nav */}
-      <div className="hidden md:flex flex-row gap-4 ml-auto ">
+      <div className="hidden md:flex flex-row gap-2 ml-auto ">
         {props.items.map((item, index) => {
           if (index === props.items.length - 1)
             return (
               <NavItem
                 key={index}
                 {...item}
-                className={`mr-0 ${item.hidden ? "hidden" : ""}`}
+                className={`mx-0 ${item.hidden ? "hidden" : ""}`}
               />
             );
           else
