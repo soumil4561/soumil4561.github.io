@@ -92,7 +92,7 @@ export const siteConfig = {
     github: "https://github.com/soumil4561",
     linkedin: "https://linkedin.com/in/soumil4561",
     mail: "mailto:soumil4561@gmail.com",
-    pgp: "/soumil4561-pgp-public.asc",
+    pgp: "/soumil4561-pubkey.asc",
     resume: "/resume.pdf",
     // docs: "https://soumil4561.github.io",
   },
@@ -101,4 +101,14 @@ I am a computer science graduate from the Indian Institute of Information Techno
 I work primarily with Node.js, Spring Boot, PostgreSQL, and Cloud — building services that balance reliability and performance. Lately, I’ve been exploring lower-level C/C++ to better understand system internals and performance optimization.\n
 Outside of work, I enjoy building side projects that challenge my problem-solving skills — from creating an image-processor in go and  SDL-based graphics projects. I am also interested in system design and architecture\n
 I am passionate about continuous learning, exploring new technologies, and sharing knowledge through writing and collaboration. I’m always excited to connect with like-minded engineers, contribute to open-source projects, and take on interesting challenges.`,
+  projects: [
+    {
+      backgroundImage: "/blog/first-post/dock.png",
+      link: "https://www.google.com",
+      subtitle: "web app",
+      title: "Stone",
+      description: "This is the stone project",
+      techTags: ["NextJS", "NodeJS", "redis", "postgressql", "GCP"],
+    },
+  ],
 };

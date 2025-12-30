@@ -1,15 +1,15 @@
 "use client";
 
 import Home from "@/app/home/home";
-import About from "@/app/about/about";
 import Experience from "@/app/experience/experience";
+import Projects from "@/app/projects/projects";
 
 export default function App() {
   return (
     <>
       <Home />
-      <About />
       <Experience />
+      <Projects />
     </>
   );
 }
