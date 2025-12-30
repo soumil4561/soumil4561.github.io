@@ -21,7 +21,7 @@ export function TimelineItem(item: TimelineItem) {
       {/* Dot positioned on center line */}
       <div className=" absolute md:left-1/2 -translate-x-1/2 z-30 flex items-center justify-center">
         {/* Halo */}
-        <div className="p-4 bg-background rounded-full">
+        <div className="py-4 bg-background rounded-full">
           {/* Dot */}
           <div
             className=" font-heading h-3 w-3 p-5 rounded-full bg-background-secondary 
