@@ -91,4 +91,8 @@
   .section {
     @apply flex flex-col items-center pt-16 justify-around;
   }
+
+  .label {
+    @apply border-1 border-border bg-background-secondary uppercase font-heading tracking-widest text-sm whitespace-nowrap p-2
+  }
 }

@@ -33,6 +33,16 @@ export default function BlogPreview(post: BlogItemMetadata) {
       <h1 className="font-heading text-2xl font-normal mb-2">{post.title}</h1>
 
       <p className="font-content font-light opacity-90">{post.description}</p>
+
+      <div className="flex flex-row gap-1 mt-2">
+        {post.tags.map((tag, index) => {
+          return (
+            <div key={index} className="label">
+              {tag}
+            </div>
+          );
+        })}
+      </div>
     </Link>
   );
 }
