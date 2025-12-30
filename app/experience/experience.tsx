@@ -47,7 +47,7 @@ export default function Experience() {
         {/* Dots + cards */}
         {array.map((item, i) => (
           <div key={i} className="relative flex items-center">
-            <TimelineItem details={item} index={i} />
+            <TimelineItem details={item} index={array.length - i} />
           </div>
         ))}
       </div>
