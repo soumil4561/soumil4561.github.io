@@ -38,6 +38,7 @@ export default function Contact() {
               <textarea
                 className="bg-background-tertiary p-4 rounded-xs outline-0"
                 placeholder="Message"
+                rows={4}
               />
               <PrimaryButton
                 className="font-semibold"
