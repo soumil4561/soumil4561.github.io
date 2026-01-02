@@ -11,7 +11,7 @@ import {
 } from "@phosphor-icons/react";
 
 export type ArrowIconButtonProps = {
-  type: "mail" | "github" | "linkedin" | "pgp" | "resume";
+  type?: "mail" | "github" | "linkedin" | "pgp" | "resume";
   link: string;
   hidden?: boolean | false;
   className?: string;
