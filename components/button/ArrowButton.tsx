@@ -15,8 +15,12 @@ export type ArrowIconButtonProps = {
   link: string;
   hidden?: boolean | false;
   className?: string;
+  children?: React.ReactNode;
 };
 
+/**
+ * @deprecated This component is deprecated. Please use the `ArrowIconButtonV2` instead.
+ */
 export default function ArrowIconButton(props: ArrowIconButtonProps) {
   const iconSize = 22;
   let logo = null;
@@ -56,6 +60,24 @@ export default function ArrowIconButton(props: ArrowIconButtonProps) {
 
       <ArrowRightIcon
         className="transition-transform duration-300 ease-in group-hover:-rotate-45"
+        size={18}
+      />
+    </Link>
+  );
+}
+
+export function ArrowIconButtonV2(props: ArrowIconButtonProps) {
+  return (
+    <Link
+      className={`group flex flex-row p-4 border-1 justify-between items-center border-border 
+      hover:border-border-hover bg-background-tertiary hover:bg-background-tertiary-hover duration-500 ${props.className}`}
+      href={props.link}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      {props.children}
+      <ArrowRightIcon
+        className="transition-transform duration-300 ease-in group-hover:-rotate-45 ml-6"
         size={18}
       />
     </Link>

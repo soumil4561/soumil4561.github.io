@@ -11,7 +11,7 @@ export function TimelineCard(card: TimelineCardProps) {
   return (
     <div
       className={`
-        my-6 w-full md:w-2/5 dark:bg-background-secondary p-6 border-2 border-border
+        my-6 w-full md:w-2/5 dark:bg-background-secondary p-6 border-1 border-border
         ml-[calc(5%+1rem)]
         ${
           isLeft
