@@ -69,15 +69,15 @@ export default function ArrowIconButton(props: ArrowIconButtonProps) {
 export function ArrowIconButtonV2(props: ArrowIconButtonProps) {
   return (
     <Link
-      className={`group flex flex-row p-4 border-1 justify-between items-center border-border 
-      hover:border-border-hover bg-background-tertiary hover:bg-background-tertiary-hover duration-500 ${props.className}`}
+      className={`group flex flex-row px-4 py-2 border-1 justify-between items-center border-border 
+      hover:border-border-hover bg-background-tertiary hover:bg-background-tertiary-hover duration-500 rounded-xs ${props.className}`}
       href={props.link}
       rel="noopener noreferrer"
       target="_blank"
     >
       {props.children}
       <ArrowRightIcon
-        className="transition-transform duration-300 ease-in group-hover:-rotate-45 ml-6"
+        className="transition-transform duration-300 ease-in group-hover:-rotate-45 ml-4"
         size={18}
       />
     </Link>

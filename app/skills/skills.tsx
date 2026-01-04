@@ -4,7 +4,9 @@ export default function Skills() {
   return (
     <section className="section">
       <div className="section-heading">Skills</div>
-      <div className="section-heading-subtitle">My brags</div>
+      <div className="section-heading-subtitle">
+        Languages, tools, and systems I work with.
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {siteConfig.skills.map((subsection, index) => {

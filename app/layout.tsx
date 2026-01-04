@@ -4,6 +4,7 @@ import { Metadata, Viewport } from "next";
 import { siteConfig } from "@/config/site";
 import ClientProviders from "@/app/providers";
 import Navbar from "@/components/navbar/Navbar";
+import CTA from "@/components/cta/cta";
 import Footer from "@/components/footer/Footer";
 
 export const metadata: Metadata = {
@@ -33,10 +34,11 @@ export default function RootLayout({
         <ClientProviders>
           <div className="bg-background text-foreground min-h-screen">
             <div className="relative flex flex-col min-h-screen">
-              <main className="container mx-auto max-w-8xl px-6 flex-grow">
+              <main className="container mx-auto max-w-8xl px-6 flex-grow mb-4">
                 <Navbar items={siteConfig.navItems} />
                 {children}
               </main>
+              <CTA />
               <Footer />
             </div>
           </div>
