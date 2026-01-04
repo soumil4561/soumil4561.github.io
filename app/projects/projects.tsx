@@ -21,8 +21,8 @@ export default function Projects() {
 
   return (
     <section className="section">
-      <div className="page-heading">Projects</div>
-      <div className="page-heading-subtitle">
+      <div className="section-heading">Projects</div>
+      <div className="section-heading-subtitle">
         Things I&apos;ve built along the way
       </div>
       <div className="w-full">

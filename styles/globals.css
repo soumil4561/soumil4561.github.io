@@ -76,15 +76,15 @@
 }
 
 @layer components {
-  .page-heading {
+  .section-heading {
     @apply font-heading text-7xl  mb-2 lg:mb-8 text-center;
   }
 
-  .page-heading-subtitle {
+  .section-heading-subtitle {
     @apply font-content font-light text-sm mb-8 lg:mb-16 text-center;
   }
 
-  .page-heading-supertitle {
+  .section-heading-supertitle {
     @apply font-content font-light text-sm mb-4 text-center;
   }
 
@@ -92,7 +92,15 @@
     @apply flex flex-col items-center pt-16 justify-around;
   }
 
+  .section-subheading {
+    @apply font-heading text-4xl mb-2 lg:mb-6;
+  }
+
   .label {
-    @apply border-1 border-border bg-background-secondary uppercase font-heading tracking-widest text-sm whitespace-nowrap p-2
+    @apply border-1 border-border bg-background-secondary uppercase font-heading tracking-widest text-sm whitespace-nowrap p-2;
+  }
+
+  .box {
+    @apply border-1 border-border bg-background-secondary p-4
   }
 }

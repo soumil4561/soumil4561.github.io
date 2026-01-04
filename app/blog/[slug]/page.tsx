@@ -31,8 +31,8 @@ export default async function BlogPost({
 
   return (
     <section className="section">
-      <div className="page-heading">{post.frontmatter.title}</div>
-      <div className="page-heading-subtitle">
+      <div className="section-heading">{post.frontmatter.title}</div>
+      <div className="section-heading-subtitle">
         {post.frontmatter.description}
       </div>
       {/* read more button */}
