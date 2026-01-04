@@ -12,7 +12,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="w-full flex items-center justify-center p-10 md:py-20 md:px-40 bg-background-tertiary mt-4">
+    <footer className="w-full flex items-center justify-center p-10 md:py-20 md:px-40 bg-background-tertiary">
       <div className="w-full flex flex-col items-center justify-center">
         <div className="font-content flex flex-row w-full justify-between">
           <div className="flex flex-col">

@@ -22,7 +22,7 @@ function GithubLinkerButton({
 }) {
   return (
     <ArrowIconButtonV2
-      className={`bg-secondary/90 text-inverse hover:bg-secondary transition duration-200 p-0 ${className}`}
+      className={`bg-secondary/90 text-inverse hover:bg-secondary transition duration-200 py-4 ${className}`}
       link={link}
     >
       <div className="flex flex-row font-heading items-center tracking-widest uppercase text-sm gap-1">
