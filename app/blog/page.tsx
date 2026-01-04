@@ -6,8 +6,8 @@ export default async function BlogPage() {
       <div className="h-16" />
       <main className="container mx-auto max-w-8xl px-6 flex-grow">
         <section className="section">
-          <div className="page-heading">Blog</div>
-          <div className="page-heading-subtitle">just because</div>
+          <div className="section-heading">Blog</div>
+          <div className="section-heading-subtitle">just because</div>
           <BlogMenu />
         </section>
       </main>
