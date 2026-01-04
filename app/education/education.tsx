@@ -7,7 +7,7 @@ export default function Education() {
       <h3 className="section-subheading">Education</h3>
       <div className="w-full flex justify-center">
         <div className="relative flex flex-col">
-          <TimelineBar />
+          <TimelineBar className="left-1/2" />
           {siteConfig.education.map((item, index) => {
             index = siteConfig.education.length - index;
             const formattedIndex =
