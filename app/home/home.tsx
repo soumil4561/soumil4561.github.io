@@ -2,7 +2,10 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <section className="relative flex flex-col md:flex-row h-[calc(100vh-4rem)] pb-4">
+    <section
+      className="relative flex flex-col md:flex-row h-[calc(100vh-4rem)] pb-4"
+      id="home"
+    >
       {/* Image (top on mobile, left on desktop) */}
       <div className="relative w-full md:w-1/2 h-1/2 md:h-full">
         <Image

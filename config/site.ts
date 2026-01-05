@@ -6,7 +6,7 @@ export const siteConfig = {
   navItems: [
     {
       label: "Resume",
-      href: "/",
+      href: "/#experience",
       type: "label",
       hidden: false,
     },

@@ -30,7 +30,7 @@ export default async function BlogPost({
   const mdxSource = await serialize({ source: post.content });
 
   return (
-    <section className="section">
+    <section className="section" id={post.slug}>
       <div className="section-heading">{post.frontmatter.title}</div>
       <div className="section-heading-subtitle">
         {post.frontmatter.description}
