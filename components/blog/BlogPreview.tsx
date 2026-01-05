@@ -4,6 +4,8 @@ import Link from "next/link";
 import { BlogItemMetadata } from "@/components/blog/BlogMenu";
 
 export default function BlogPreview(post: BlogItemMetadata) {
+  const tagLimit = 4;
+
   return (
     <Link
       className="
@@ -34,14 +36,15 @@ export default function BlogPreview(post: BlogItemMetadata) {
 
       <p className="font-content font-light opacity-90">{post.description}</p>
 
-      <div className="flex flex-row gap-1 mt-2">
-        {post.tags.map((tag, index) => {
-          return (
-            <div key={index} className="label">
-              {tag}
-            </div>
-          );
-        })}
+      <div className="flex flex-row flex-wrap gap-1 mt-2 items-center">
+        {post.tags.slice(0, tagLimit).map((tag, index) => (
+          <div key={index} className="label">
+            {tag}
+          </div>
+        ))}
+        {post.tags.length > tagLimit ? (
+          <h6 className="font-content">+{post.tags.length - tagLimit} more</h6>
+        ) : null}
       </div>
     </Link>
   );
