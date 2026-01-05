@@ -22,7 +22,7 @@ export default function CTA() {
           Happy to discuss systems, backends, and interesting problems.
         </h3>
         <ArrowIconButtonV2
-          className="bg-secondary/80 text-inverse hover:bg-secondary transition 
+          className="bg-secondary/90 text-inverse hover:bg-secondary transition 
           duration-200 uppercase tracking-wider text-[0.8125rem] font-normal mt-8 md:mt-12 rounded-xs"
           link="/contact"
           sameTab={true}
