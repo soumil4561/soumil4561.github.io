@@ -13,6 +13,7 @@ import {
 export type ArrowIconButtonProps = {
   type?: "mail" | "github" | "linkedin" | "pgp" | "resume";
   link: string;
+  sameTab?: boolean | false;
   hidden?: boolean | false;
   className?: string;
   children?: React.ReactNode;
@@ -72,8 +73,8 @@ export function ArrowIconButtonV2(props: ArrowIconButtonProps) {
       className={`group flex flex-row px-4 py-2 border-1 justify-between items-center border-border 
       hover:border-border-hover bg-background-tertiary hover:bg-background-tertiary-hover duration-500 rounded-xs ${props.className}`}
       href={props.link}
-      rel="noopener noreferrer"
-      target="_blank"
+      rel={props.sameTab ? "" : "noopener noreferrer"}
+      target={props.sameTab ? "" : "_blank"}
     >
       {props.children}
       <ArrowRightIcon

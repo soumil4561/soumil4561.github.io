@@ -85,7 +85,7 @@
   }
 
   .section-heading-supertitle {
-    @apply font-content font-light text-sm mb-4 text-center;
+    @apply font-content text-xs mb-4 text-center uppercase font-medium tracking-wide;
   }
 
   .section {

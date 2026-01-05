@@ -2,7 +2,7 @@ import { siteConfig } from "@/config/site";
 
 export default function Skills() {
   return (
-    <section className="section">
+    <section className="section" id="skills">
       <div className="section-heading">Skills</div>
       <div className="section-heading-subtitle">
         Languages, tools, and systems I work with.

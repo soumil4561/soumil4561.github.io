@@ -20,7 +20,7 @@ export default function Projects() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
 
   return (
-    <section className="section">
+    <section className="section" id="section">
       <div className="section-heading">Projects</div>
       <div className="section-heading-subtitle">
         Things I&apos;ve built along the way

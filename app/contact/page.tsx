@@ -4,7 +4,7 @@ import ArrowIconButton from "@/components/button/ArrowButton";
 
 export default function Contact() {
   return (
-    <section className="section w-11/12 mx-auto">
+    <section className="section w-11/12 mx-auto" id="contact">
       <div className="flex flex-row justify-center items-stretch w-full gap-4">
         {/* <div className="hidden lg:flex flex-1">
           <div className="relative w-full">
