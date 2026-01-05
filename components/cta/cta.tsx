@@ -25,6 +25,7 @@ export default function CTA() {
           className="bg-secondary/80 text-inverse hover:bg-secondary transition 
           duration-200 uppercase tracking-wider text-[0.8125rem] font-normal mt-8 md:mt-12 rounded-xs"
           link="/contact"
+          sameTab={true}
         >
           Get in touch
         </ArrowIconButtonV2>
