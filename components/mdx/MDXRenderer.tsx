@@ -15,7 +15,10 @@ export default function MDXRenderer({
   }
 
   return (
-    <article className="prose dark:prose-invert max-w-none">
+    <article
+      className="prose dark:prose-invert max-w-none my-4"
+      id="blog-content-start"
+    >
       <MDXClient {...mdxSource} />
     </article>
   );

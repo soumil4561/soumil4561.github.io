@@ -14,6 +14,8 @@ export type FrontmatterType = {
   description: string;
   tags: string[];
   published: boolean;
+  readingTime: string;
+  banner: string;
 };
 
 export type Post = {
