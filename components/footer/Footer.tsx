@@ -1,10 +1,10 @@
 "use client";
 
-import { ArrowUpIcon } from "@phosphor-icons/react";
 import Link from "next/link";
 
 import FooterBadge from "./FooterBadge";
 
+import ArrowScrollButton from "@/components/button/ArrowScrollButton";
 import { siteConfig } from "@/config/site";
 
 export default function Footer() {
@@ -54,22 +54,11 @@ export default function Footer() {
         </div>
         <div className="font-content flex flex-col gap-2 md:gap-0 md:flex-row text-center w-full justify-between items-center mt-5">
           © {year} Soumil Singh — Built from scratch and always evolving.
-          <button
-            className="flex flex-row items-center justify-content font-heading uppercase  gap-2 text-sm tracking-widest font-normal"
-            type="button"
-            onClick={() => {
-              window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: "smooth",
-              });
-            }}
-          >
-            to top
-            <div className="flex items-center justify-center p-2 rounded-full border-1 border-border bg-background-tertiary hover:bg-background-tertiary-hover hover:border-border-hover duration-500">
-              <ArrowUpIcon size={20} />
-            </div>
-          </button>
+          <ArrowScrollButton
+            iconToTextRelativeDirection="right"
+            target="top"
+            text="to top"
+          />
         </div>
       </div>
     </footer>
