@@ -1,8 +1,45 @@
+"use client";
+
+import { useState } from "react";
+
 import { PrimaryButton } from "@/components/button/Button";
 import { siteConfig } from "@/config/site";
 import ArrowIconButton from "@/components/button/ArrowButton";
+import { getEmailClient } from "@/lib/emailClient";
 
 export default function Contact() {
+  const [loading, setLoading] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setLoading(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    } as Record<string, unknown>;
+
+    try {
+      const emailjs = await getEmailClient();
+
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID!;
+
+      await emailjs.send(serviceId, templateId, payload);
+
+      form.reset();
+      alert("Message sent!");
+    } catch (err) {
+      alert(`Failed to send message due to error: ${err}`);
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <section className="section w-11/12 mx-auto" id="contact">
       <div className="flex flex-row justify-center items-stretch w-full gap-4">
@@ -26,7 +63,10 @@ export default function Contact() {
               Let&apos;s get in touch
             </h2>
 
-            <form className="flex flex-col gap-4 mt-8 mb-4">
+            <form
+              className="flex flex-col gap-4 mt-8 mb-4"
+              onSubmit={handleSubmit}
+            >
               <input
                 className="bg-background-tertiary p-4 rounded-xs outline-0"
                 placeholder="Name"
@@ -42,7 +82,7 @@ export default function Contact() {
               />
               <PrimaryButton
                 className="font-semibold"
-                text="Send Message"
+                text={loading ? "Sending..." : "Send Message"}
                 type="submit"
               />
             </form>
