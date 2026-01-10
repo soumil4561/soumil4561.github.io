@@ -17,11 +17,41 @@ export default function Contact() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    const name = formData.get("name")?.toString();
+    const email = formData.get("email")?.toString();
+    const message = formData.get("message")?.toString();
+
+    const nameRegex = /^[a-zA-Z][a-zA-Z\s.'-]{1,49}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+    if (!name || !nameRegex.test(name)) {
+      throw new Error("Please enter a valid name");
+    }
+
+    if (!email || !emailRegex.test(email)) {
+      throw new Error("Please enter a valid email address");
+    }
+
+    if (!message || message.length < 10) {
+      throw new Error("Message must be at least 10 characters");
+    }
+
     const payload = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      message: formData.get("message"),
-    } as Record<string, unknown>;
+      name: name,
+      email: email,
+      message: message,
+      time: new Date().toLocaleString("en-IN", {
+        timeZone: "Asia/Kolkata",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+        timeZoneName: "short",
+        weekday: "short",
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      }),
+    };
 
     try {
       const emailjs = await getEmailClient();
