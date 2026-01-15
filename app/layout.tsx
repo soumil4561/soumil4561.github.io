@@ -36,8 +36,8 @@ export default function RootLayout({
       <meta
         content={`
             default-src 'self';
-            script-src 'self' https://challenges.cloudflare.com 'unsafe-inline'
-            script-src-elem 'self' https://challenges.cloudflare.com 'unsafe-inline'
+            script-src 'self' https://challenges.cloudflare.com 'unsafe-inline';
+            script-src-elem 'self' https://challenges.cloudflare.com 'unsafe-inline';
             frame-src https://challenges.cloudflare.com;
             connect-src 'self' https://challenges.cloudflare.com;
           `}
