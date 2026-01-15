@@ -16,19 +16,16 @@ export default function Contact() {
   useEffect(() => {
     // MUST be attached to window
     (window as any).onTurnstileSuccess = (token: string) => {
-      console.log("Turnstile success:", token);
       tokenRef.current = token;
       setTurnstileState("verified");
     };
 
     (window as any).onTurnstileError = () => {
-      console.warn("Turnstile error");
       tokenRef.current = null;
       setTurnstileState("error");
     };
 
     (window as any).onTurnstileExpired = () => {
-      console.warn("Turnstile expired");
       tokenRef.current = null;
       setTurnstileState("expired");
     };
@@ -77,8 +74,6 @@ export default function Contact() {
       token: tokenRef.current,
     };
 
-    console.log(payload);
-
     try {
       const response = await fetch("http://localhost:8787/send-contact-email", {
         method: "POST",
@@ -89,12 +84,6 @@ export default function Contact() {
       });
 
       const result = await response.json();
-
-      if (result.success) {
-        console.log("Message sent");
-      } else {
-        console.log("Message not sent");
-      }
 
       form.reset();
     } catch (err) {
