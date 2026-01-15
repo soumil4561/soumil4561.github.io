@@ -1,14 +1,38 @@
 "use client";
-
-import { useState } from "react";
+import Script from "next/script";
+import { useState, useEffect, useRef } from "react";
 
 import { PrimaryButton } from "@/components/button/Button";
 import { siteConfig } from "@/config/site";
 import ArrowIconButton from "@/components/button/ArrowButton";
-import { getEmailClient } from "@/lib/emailClient";
+
+type TurnstileState = "idle" | "verified" | "error" | "expired";
 
 export default function Contact() {
   const [loading, setLoading] = useState(false);
+  const tokenRef = useRef<string | null>(null);
+  const [turnstileState, setTurnstileState] = useState<TurnstileState>("idle");
+
+  useEffect(() => {
+    // MUST be attached to window
+    (window as any).onTurnstileSuccess = (token: string) => {
+      console.log("Turnstile success:", token);
+      tokenRef.current = token;
+      setTurnstileState("verified");
+    };
+
+    (window as any).onTurnstileError = () => {
+      console.warn("Turnstile error");
+      tokenRef.current = null;
+      setTurnstileState("error");
+    };
+
+    (window as any).onTurnstileExpired = () => {
+      console.warn("Turnstile expired");
+      tokenRef.current = null;
+      setTurnstileState("expired");
+    };
+  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -21,11 +45,10 @@ export default function Contact() {
     const email = formData.get("email")?.toString();
     const message = formData.get("message")?.toString();
 
-    const nameRegex = /^[a-zA-Z][a-zA-Z\s.'-]{1,49}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-    if (!name || !nameRegex.test(name)) {
-      throw new Error("Please enter a valid name");
+    if (!name) {
+      throw new Error("Please enter a name");
     }
 
     if (!email || !emailRegex.test(email)) {
@@ -51,18 +74,29 @@ export default function Contact() {
         month: "short",
         year: "numeric",
       }),
+      token: tokenRef.current,
     };
 
+    console.log(payload);
+
     try {
-      const emailjs = await getEmailClient();
+      const response = await fetch("http://localhost:8787/send-contact-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
 
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID!;
+      const result = await response.json();
 
-      await emailjs.send(serviceId, templateId, payload);
+      if (result.success) {
+        console.log("Message sent");
+      } else {
+        console.log("Message not sent");
+      }
 
       form.reset();
-      alert("Message sent!");
     } catch (err) {
       alert(`Failed to send message due to error: ${err}`);
     } finally {
@@ -72,6 +106,10 @@ export default function Contact() {
 
   return (
     <section className="section w-11/12 mx-auto" id="contact">
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        strategy="afterInteractive"
+      />
       <div className="flex flex-row justify-center items-stretch w-full gap-4">
         {/* <div className="hidden lg:flex flex-1">
           <div className="relative w-full">
@@ -99,19 +137,30 @@ export default function Contact() {
             >
               <input
                 className="bg-background-tertiary p-4 rounded-xs outline-0"
-                placeholder="Name"
+                placeholder="name"
               />
               <input
                 className="bg-background-tertiary p-4 rounded-xs outline-0"
-                placeholder="Email"
+                placeholder="email"
               />
               <textarea
                 className="bg-background-tertiary p-4 rounded-xs outline-0"
-                placeholder="Message"
+                placeholder="message"
                 rows={4}
+              />
+              <div
+                className="cf-turnstile"
+                data-callback="onTurnstileSuccess"
+                data-error-callback="onTurnstileError"
+                data-expired-callback="onTurnstileExpired"
+                data-sitekey={`${process.env.NEXT_PUBLIC_TURNSTILE_SITEKEY}`}
+                data-size="flexible"
+                data-theme="auto"
               />
               <PrimaryButton
                 className="font-semibold"
+                disabled={turnstileState !== "verified"}
+                id="contact-submit-btn"
                 text={loading ? "Sending..." : "Send Message"}
                 type="submit"
               />
