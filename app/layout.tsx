@@ -30,6 +30,19 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning lang="en">
+      <head>
+        <link href="https://challenges.cloudflare.com" rel="preconnect" />
+      </head>
+      <meta
+        content={`
+            default-src 'self';
+            script-src 'self' https://challenges.cloudflare.com 'unsafe-inline'
+            script-src-elem 'self' https://challenges.cloudflare.com 'unsafe-inline'
+            frame-src https://challenges.cloudflare.com;
+            connect-src 'self' https://challenges.cloudflare.com;
+          `}
+        httpEquiv="Content-Security-Policy"
+      />
       <body className="transition-colors duration-300">
         <ClientProviders>
           <div className="bg-background text-foreground min-h-screen">
