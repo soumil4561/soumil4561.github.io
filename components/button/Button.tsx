@@ -3,6 +3,7 @@
 type ButtonParams = {
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
+  id?: string;
   text: string;
   onClickExecutor?: (() => void) | null;
   className?: string; // allow variants to inject their styles
