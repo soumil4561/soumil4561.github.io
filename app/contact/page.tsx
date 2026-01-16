@@ -9,12 +9,14 @@ import ArrowIconButton from "@/components/button/ArrowButton";
 type TurnstileState = "idle" | "verified" | "error" | "expired";
 
 export default function Contact() {
+  const EMAIL_PROXY_HOST =
+    process.env.NEXT_PUBLIC_EMAIL_PROXY_HOST ?? "http://localhost:8787";
+
   const [loading, setLoading] = useState(false);
   const tokenRef = useRef<string | null>(null);
   const [turnstileState, setTurnstileState] = useState<TurnstileState>("idle");
 
   useEffect(() => {
-    // MUST be attached to window
     (window as any).onTurnstileSuccess = (token: string) => {
       tokenRef.current = token;
       setTurnstileState("verified");
@@ -38,9 +40,9 @@ export default function Contact() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    const name = formData.get("name")?.toString();
-    const email = formData.get("email")?.toString();
-    const message = formData.get("message")?.toString();
+    const name = formData.get("Name")?.toString();
+    const email = formData.get("Email")?.toString();
+    const message = formData.get("Message")?.toString();
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -75,7 +77,7 @@ export default function Contact() {
     };
 
     try {
-      const response = await fetch("http://localhost:8787/send-contact-email", {
+      const response = await fetch(EMAIL_PROXY_HOST, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -126,15 +128,15 @@ export default function Contact() {
             >
               <input
                 className="bg-background-tertiary p-4 rounded-xs outline-0"
-                placeholder="name"
+                placeholder="Name"
               />
               <input
                 className="bg-background-tertiary p-4 rounded-xs outline-0"
-                placeholder="email"
+                placeholder="Email"
               />
               <textarea
                 className="bg-background-tertiary p-4 rounded-xs outline-0"
-                placeholder="message"
+                placeholder="Message"
                 rows={4}
               />
               <div

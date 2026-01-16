@@ -28,21 +28,31 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const isProd = process.env.NODE_ENV === "production";
+
   return (
     <html suppressHydrationWarning lang="en">
       <head>
         <link href="https://challenges.cloudflare.com" rel="preconnect" />
       </head>
-      <meta
-        content={`
+      {isProd && (
+        <meta
+          content="
             default-src 'self';
-            script-src 'self' https://challenges.cloudflare.com 'unsafe-inline';
-            script-src-elem 'self' https://challenges.cloudflare.com 'unsafe-inline';
+            script-src 'self' https://challenges.cloudflare.com
+                'sha256-ZswfTY7H35rbv8WC7WNu86vSzCDChNWwZZDM='
+                'sha256-7PZaH7TzFg4JdT5xJguN7Och6VcMcP1LW4N3fQ936Fs='
+                'sha256-MqH8JJslY2fF2bGYY1rZlpCNrRCnWKRzrrDefixUJTI='
+                'sha256-wFoFr0zj4HCJpBFBnOr50v4tU0PPSqb6rcsojHJfbXs=';
             frame-src https://challenges.cloudflare.com;
             connect-src 'self' https://challenges.cloudflare.com;
-          `}
-        httpEquiv="Content-Security-Policy"
-      />
+            img-src 'self' data: https:;
+            style-src 'self';
+          "
+          httpEquiv="Content-Security-Policy"
+        />
+      )}
+
       <body className="transition-colors duration-300">
         <ClientProviders>
           <div className="bg-background text-foreground min-h-screen">
