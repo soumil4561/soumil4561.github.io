@@ -1,6 +1,8 @@
 let emailjsPromise: Promise<typeof import("@emailjs/browser")> | null = null;
 let initialized = false;
 
+import { EmailJSResponseStatus } from "@emailjs/browser";
+
 async function loadEmailJS() {
   if (!emailjsPromise) {
     emailjsPromise = import("@emailjs/browser");
