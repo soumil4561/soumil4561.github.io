@@ -16,17 +16,21 @@ export default function Navbar(props: NavbarProps) {
 
   return (
     <nav
-      className="
-      sticky top-2 md:top-8
-      mt-0 md:mt-4 px-4 py-2
-      z-50 border-border border-1 
-      bg-background-tertiary 
-      shadow-[0_4px_30px_rgba(0,0,0,0.1)]
-      backdrop-blur-xl 
-      flex flex-row items-center justify-between
-      w-full md:w-fit
-      mx-auto"
-    >
+  className="
+    fixed
+    top-2 md:top-8
+    left-1/2 -translate-x-1/2
+    z-50
+    px-4 py-2
+    border border-border
+    bg-background-tertiary
+    backdrop-blur-xl
+    shadow-[0_4px_30px_rgba(0,0,0,0.1)]
+    flex items-center justify-between
+    w-full md:w-fit
+  "
+>
+
       {/* Logo */}
       <NavbarLogo />
 

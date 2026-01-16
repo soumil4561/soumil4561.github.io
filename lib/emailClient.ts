@@ -1,4 +1,3 @@
-// lib/emailClient.ts
 let emailjsPromise: Promise<typeof import("@emailjs/browser")> | null = null;
 let initialized = false;
 
@@ -31,4 +30,14 @@ export async function getEmailClient() {
   }
 
   return emailjs;
+}
+
+export async function sendEmail(
+  serviceId: string,
+  templateId: string,
+  payload: Record<string, unknown>,
+): Promise<EmailJSResponseStatus> {
+  const emailjs = await getEmailClient();
+
+  return await emailjs.send(serviceId, templateId, payload);
 }
