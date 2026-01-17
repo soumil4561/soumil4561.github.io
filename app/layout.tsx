@@ -42,7 +42,7 @@ export default function RootLayout({
             script-src-elem 'self' https://challenges.cloudflare.com 'unsafe-inline' 'unsafe-eval';
             script-src-attr 'none';
             frame-src https://challenges.cloudflare.com;
-            connect-src 'self' https://challenges.cloudflare.com;
+            connect-src 'self' https://challenges.cloudflare.com https://turnstile-email-proxy.soumil-sps.workers.dev;
             img-src 'self' data: https:;
             style-src 'self';
             frame-ancestors 'none';"
