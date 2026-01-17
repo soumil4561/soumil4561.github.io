@@ -40,9 +40,9 @@ export default function Contact() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    const name = formData.get("Name")?.toString();
-    const email = formData.get("Email")?.toString();
-    const message = formData.get("Message")?.toString();
+    const name = formData.get("name")?.toString();
+    const email = formData.get("email")?.toString();
+    const message = formData.get("message")?.toString();
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -77,7 +77,7 @@ export default function Contact() {
     };
 
     try {
-      const response = await fetch(EMAIL_PROXY_HOST, {
+      const response = await fetch(`${EMAIL_PROXY_HOST}/send-contact-email`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -128,14 +128,20 @@ export default function Contact() {
             >
               <input
                 className="bg-background-tertiary p-4 rounded-xs outline-0"
+                id="name"
+                name="name"
                 placeholder="Name"
               />
               <input
                 className="bg-background-tertiary p-4 rounded-xs outline-0"
+                id="email"
+                name="email"
                 placeholder="Email"
               />
               <textarea
                 className="bg-background-tertiary p-4 rounded-xs outline-0"
+                id="message"
+                name="message"
                 placeholder="Message"
                 rows={4}
               />
