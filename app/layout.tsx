@@ -40,11 +40,12 @@ export default function RootLayout({
           content="
             default-src 'self';
             script-src-elem 'self' https://challenges.cloudflare.com 'unsafe-inline' 'unsafe-eval';
+            script-src 'self' https://challenges.cloudflare.com 'unsafe-inline' 'unsafe-eval';
             script-src-attr 'none';
             frame-src https://challenges.cloudflare.com;
             connect-src 'self' https://challenges.cloudflare.com https://turnstile-email-proxy.soumil-sps.workers.dev;
             img-src 'self' data: https:;
-            style-src 'self';
+            style-src 'self' 'unsafe-inline';
             frame-ancestors 'none';"
           httpEquiv="Content-Security-Policy"
         />
