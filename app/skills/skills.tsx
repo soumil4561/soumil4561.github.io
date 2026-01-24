@@ -25,7 +25,7 @@ export default function Skills() {
                   return (
                     <h4 key={index} className="label">
                       <Icon className="text-default h-5 w-5" />
-                      <span className="text-[1.1rem] tracking-wider font-heading">
+                      <span className="text-[1rem] tracking-widest font-heading">
                         {skill}
                       </span>
                     </h4>
