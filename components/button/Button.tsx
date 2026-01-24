@@ -18,7 +18,7 @@ function BaseButton({
 }: ButtonParams) {
   return (
     <button
-      className={`uppercase p-4 rounded-xs tracking-wider border-2 border-border ${className}`}
+      className={`p-4 rounded-xs border-2 border-border ${className}`}
       disabled={disabled}
       type={type}
       onClick={onClickExecutor ?? (() => {})}

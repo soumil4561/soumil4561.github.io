@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import { PrimaryButton } from "@/components/button/Button";
 import { siteConfig } from "@/config/site";
 import ArrowIconButton from "@/components/button/ArrowButton";
+import Tooltip from "@/components/tooltip/Tooltip";
 
 type TurnstileState = "idle" | "verified" | "error" | "expired";
 
@@ -14,7 +15,14 @@ export default function Contact() {
 
   const [loading, setLoading] = useState(false);
   const tokenRef = useRef<string | null>(null);
+  const [nameInputState, setNameInputState] = useState<Boolean>(false);
+  const [emailInputState, setEmailInputState] = useState<Boolean>(false);
+  const [messageInputState, setMessageInputState] = useState<Boolean>(false);
   const [turnstileState, setTurnstileState] = useState<TurnstileState>("idle");
+  const [showEmailTooltip, setShowEmailTooltip] = useState(false);
+  const [showMessageTooltip, setShowMessageTooltip] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState<string | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   useEffect(() => {
     (window as any).onTurnstileSuccess = (token: string) => {
@@ -33,6 +41,16 @@ export default function Contact() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!submitSuccess) return;
+
+    const timer = setTimeout(() => {
+      setSubmitSuccess(null);
+    }, 3000); // 3 seconds is the sweet spot
+
+    return () => clearTimeout(timer);
+  }, [submitSuccess]);
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
@@ -40,22 +58,35 @@ export default function Contact() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    const name = formData.get("name")?.toString();
-    const email = formData.get("email")?.toString();
-    const message = formData.get("message")?.toString();
+    const name = formData.get("name")?.toString().trim();
+    const email = formData.get("email")?.toString().trim();
+    const message = formData.get("message")?.toString().trim();
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-    if (!name) {
-      throw new Error("Please enter a name");
-    }
+    const isNameNull = !name;
+    const isEmailNull = !email;
+    const isMessageNull = !message;
+    const isEmailInvalid = isEmailNull ? false : !emailRegex.test(email ?? "");
+    const isMessageInvalid = isMessageNull ? false : message.length < 10;
 
-    if (!email || !emailRegex.test(email)) {
-      throw new Error("Please enter a valid email address");
-    }
+    setNameInputState(isNameNull);
+    setEmailInputState(isEmailNull);
+    setMessageInputState(isMessageNull);
+    setShowEmailTooltip(isEmailInvalid);
+    setShowMessageTooltip(isMessageInvalid);
 
-    if (!message || message.length < 10) {
-      throw new Error("Message must be at least 10 characters");
+    const isError =
+      isNameNull ||
+      isEmailNull ||
+      isMessageNull ||
+      isEmailInvalid ||
+      isMessageInvalid;
+
+    if (isError) {
+      setLoading(false);
+
+      return;
     }
 
     const payload = {
@@ -87,11 +118,44 @@ export default function Contact() {
 
       const result = await response.json();
 
+      if (!result.success) {
+        setSubmitError(result.message);
+
+        return;
+      }
+      setSubmitError(null);
+      setSubmitSuccess(result.message ?? "Message sent successfully.");
       form.reset();
     } catch (err) {
-      alert(`Failed to send message due to error: ${err}`);
+      setSubmitError(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again.",
+      );
     } finally {
       setLoading(false);
+    }
+  }
+
+  async function handleInput(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) {
+    const value = e.target.value;
+
+    if (value.trim()) {
+      switch (e.target.id) {
+        case "name":
+          setNameInputState(false);
+          break;
+        case "email":
+          setEmailInputState(false);
+          break;
+        case "message":
+          setMessageInputState(false);
+          break;
+        default:
+          break;
+      }
     }
   }
 
@@ -127,24 +191,47 @@ export default function Contact() {
               onSubmit={handleSubmit}
             >
               <input
-                className="bg-background-tertiary p-4 rounded-xs outline-0"
+                className={`bg-background-tertiary p-4 rounded-xs outline-0 ${nameInputState && "border-default border-1"}`}
                 id="name"
                 name="name"
                 placeholder="Name"
+                onChange={handleInput}
               />
-              <input
-                className="bg-background-tertiary p-4 rounded-xs outline-0"
-                id="email"
-                name="email"
-                placeholder="Email"
-              />
-              <textarea
-                className="bg-background-tertiary p-4 rounded-xs outline-0"
-                id="message"
-                name="message"
-                placeholder="Message"
-                rows={4}
-              />
+              <div className="relative">
+                <input
+                  className={`bg-background-tertiary p-4 rounded-xs outline-0 w-full ${
+                    emailInputState && "border-default border-1"
+                  }`}
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                  onChange={handleInput}
+                />
+
+                <Tooltip
+                  isVisible={showEmailTooltip}
+                  onDismiss={() => setShowEmailTooltip(false)}
+                >
+                  <span>Please enter an email address.</span>
+                </Tooltip>
+              </div>
+              <div className="relative">
+                <textarea
+                  className={`bg-background-tertiary p-4 rounded-xs outline-0 w-full ${messageInputState && "border-default border-1"}`}
+                  id="message"
+                  name="message"
+                  placeholder="Message"
+                  rows={4}
+                  onChange={handleInput}
+                />
+                <Tooltip
+                  isVisible={showMessageTooltip}
+                  onDismiss={() => setShowMessageTooltip(false)}
+                >
+                  <span>Message size should be greater than 10</span>
+                </Tooltip>
+              </div>
+
               <div
                 className="cf-turnstile"
                 data-callback="onTurnstileSuccess"
@@ -154,8 +241,14 @@ export default function Contact() {
                 data-size="flexible"
                 data-theme="auto"
               />
+              {submitSuccess && (
+                <p className="text-default text-sm">{submitSuccess}</p>
+              )}
+              {submitError && (
+                <div className="text-red-300 text-sm">{submitError}</div>
+              )}
               <PrimaryButton
-                className="font-semibold"
+                className="font-medium"
                 disabled={turnstileState !== "verified"}
                 id="contact-submit-btn"
                 text={loading ? "Sending..." : "Send Message"}

@@ -62,7 +62,7 @@ export default function BlogMenu() {
       </div>
       {hasMore && (
         <DefaultButton
-          className="mt-4"
+          className="mt-4 uppercase tracking-wider"
           text="load more"
           onClickExecutor={() => setVisible((v) => v + 6)}
         />
