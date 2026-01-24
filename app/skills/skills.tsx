@@ -1,4 +1,6 @@
-import { siteConfig } from "@/config/site";
+import { CloudrunOriginal } from "@soumil4561/svg-kit";
+
+import { siteConfig, skillIcons } from "@/config/site";
 
 export default function Skills() {
   return (
@@ -18,9 +20,14 @@ export default function Skills() {
               <h3 className="font-heading text-2xl">{subsection.name}</h3>
               <div className="flex flex-row flex-wrap gap-2">
                 {subsection.items.map((skill, index) => {
+                  const Icon = skillIcons[skill] ?? CloudrunOriginal;
+
                   return (
                     <h4 key={index} className="label">
-                      {skill}
+                      <Icon className="text-default h-5 w-5" />
+                      <span className="text-[1rem] tracking-widest font-heading">
+                        {skill}
+                      </span>
                     </h4>
                   );
                 })}

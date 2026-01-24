@@ -97,7 +97,7 @@
   }
 
   .label {
-    @apply border-1 border-border bg-background-secondary uppercase font-heading tracking-widest text-sm whitespace-nowrap p-2;
+    @apply border-1 border-border bg-background-secondary uppercase flex flex-row justify-center items-center gap-2 font-heading tracking-widest text-sm whitespace-nowrap p-2;
   }
 
   .box {

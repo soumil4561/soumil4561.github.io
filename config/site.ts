@@ -1,3 +1,5 @@
+import * as SVGKit from "@soumil4561/svg-kit";
+
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
@@ -183,4 +185,34 @@ I am passionate about continuous learning, exploring new technologies, and shari
       },
     ],
   },
+};
+
+export const skillIcons: Record<
+  string,
+  React.FC<React.SVGProps<SVGSVGElement>>
+> = {
+  JavaScript: SVGKit.JavascriptPlain,
+  Java: SVGKit.JavaPlain,
+  "C++": SVGKit.CplusplusPlain,
+  Go: SVGKit.GoPlain,
+  TypeScript: SVGKit.TypescriptPlain,
+  C: SVGKit.COriginal,
+  Python: SVGKit.PythonPlain,
+  MySQL: SVGKit.MysqlOriginal,
+  PostgreSQL: SVGKit.PostgresqlPlain,
+  Redis: SVGKit.RedisPlain,
+  Elasticsearch: SVGKit.ElasticsearchPlain,
+  MongoDB: SVGKit.MongodbPlain,
+  Spring: SVGKit.SpringOriginal,
+  "Node.js": SVGKit.NodejsPlain,
+  "Next.js": SVGKit.NextjsPlain,
+  FastAPI: SVGKit.FastapiPlain,
+  GraphQL: SVGKit.GraphqlPlain,
+  Docker: SVGKit.DockerPlain,
+  Git: SVGKit.GitPlain,
+  Linux: SVGKit.LinuxPlain,
+  Shell: SVGKit.BashPlain,
+  Postman: SVGKit.PostmanPlain,
+  "GitHub Actions": SVGKit.GithubactionsPlain,
+  "Cloud Run": SVGKit.CloudrunOriginal,
 };
