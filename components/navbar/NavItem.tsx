@@ -35,7 +35,7 @@ export default function NavItem({
     case "default-btn":
       return (
         <DefaultButton
-          className={`py-2 px-4 ml-4 tracking-wider text-[0.8125rem] ${className}`}
+          className={`py-2 px-4 ml-4 tracking-wider text-[0.8125rem] uppercase ${className}`}
           text={label}
           onClickExecutor={handleClick}
         />
@@ -43,7 +43,7 @@ export default function NavItem({
     case "primary-btn":
       return (
         <PrimaryButton
-          className={`py-2 px-4 ml-4 tracking-wider text-[0.8125rem] ${className}`}
+          className={`py-2 px-4 ml-4 tracking-wider text-[0.8125rem] uppercase ${className}`}
           text={label}
           onClickExecutor={handleClick}
         />
