@@ -26,7 +26,7 @@ export default function Projects() {
         Things I&apos;ve built along the way
       </div>
       <div className="w-full">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 p-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 py-4">
           {siteConfig.projects.map((project, i) => (
             <Card
               key={i}
