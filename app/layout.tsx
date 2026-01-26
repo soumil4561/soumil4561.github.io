@@ -55,6 +55,7 @@ export default function RootLayout({
         <ClientProviders>
           <div className="bg-background text-foreground min-h-screen">
             <div className="relative flex flex-col min-h-screen">
+              <div className="h-16" />
               <main className="container mx-auto max-w-8xl px-6 flex-grow mb-4">
                 <Navbar items={siteConfig.navItems} />
                 {children}

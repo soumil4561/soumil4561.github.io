@@ -2,16 +2,20 @@ import BlogMenu from "@/components/blog/BlogMenu";
 
 export default async function BlogPage() {
   return (
-    <div className="relative flex flex-col min-h-screen">
-      <div className="h-16" />
-      <main className="container mx-auto max-w-8xl px-6 flex-grow">
-        <section className="section" id="blog-menu">
-          <div className="section-heading">Blog</div>
-          <div className="section-heading-subtitle">just because</div>
-          <BlogMenu />
-        </section>
-      </main>
-      <footer className="w-full flex items-center justify-center py-3 text-sm" />
-    </div>
+    // <div className="relative flex flex-col min-h-screen">
+    //   <div className="h-16" />
+    //   <main className="container mx-auto max-w-8xl px-6 flex-grow">
+    //     <section className="section" id="blog-menu">
+    //       <div className="section-heading">Blog</div>
+    //       <div className="section-heading-subtitle">just because</div>
+    //       <BlogMenu />
+    //     </section>
+    //   </main>
+    // </div>
+    <section className="section lg:pt-20" id="blog-menu">
+      <div className="section-heading">Blog</div>
+      <div className="section-heading-subtitle">just because</div>
+      <BlogMenu />
+    </section>
   );
 }

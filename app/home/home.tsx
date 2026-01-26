@@ -2,24 +2,34 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <section
-      className="relative min-h-[100svh] flex flex-col  md:flex-row items-center px-6"
-      id="home"
-    >
-      {/* Image (top on mobile, left on desktop) */}
-      <div className=" relative w-full md:w-1/2 aspect-[4/5] max-h-[80svh] md:mt-8">
-        <Image
-          fill
-          priority
-          alt="idk... dont have that many photos...."
-          className="object-cover rounded-lg"
-          src="picture1.jpg"
-        />
-      </div>
+    <section className="h-[calc(100svh-4rem)]" id="home">
+      {/* Padding wrapper (accounts for navbar) */}
+      <div
+        className="
+          h-full
+          pt-16
+          grid
+          grid-rows-[3fr_2fr]
+          md:grid-cols-2
+          md:grid-rows-1
+          items-center
+        "
+      >
+        {/* Image */}
+        <div className="relative w-full h-full">
+          <Image
+            fill
+            priority
+            alt="idk... dont have that many photos...."
+            className="object-cover rounded-xs"
+            src="picture4.jpg"
+          />
+        </div>
 
-      {/* Text (bottom on mobile, right on desktop) */}
-      <div className="font-heading w-full md:w-1/2 h-1/2 md:h-full bg-background-500 flex justify-center items-center text-2xl md:text-4xl">
-        Hi, I am Soumil Singh
+        {/* Text */}
+        <div className="font-heading flex items-center justify-center text-2xl md:text-4xl text-center md:text-left">
+          Hi, I am Soumil Singh
+        </div>
       </div>
     </section>
   );
