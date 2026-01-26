@@ -77,11 +77,11 @@
 
 @layer components {
   .section-heading {
-    @apply font-heading text-7xl  mb-2 lg:mb-8 text-center;
+    @apply font-heading text-6xl lg:text-7xl mb-2 lg:mb-4 text-center;
   }
 
   .section-heading-subtitle {
-    @apply font-content font-light text-sm mb-8 lg:mb-16 text-center;
+    @apply font-content font-light text-sm mb-4 lg:mb-8 text-center;
   }
 
   .section-heading-supertitle {
@@ -89,7 +89,7 @@
   }
 
   .section {
-    @apply flex flex-col items-center pt-16 justify-around;
+    @apply flex flex-col items-center py-8 lg:py-16 justify-around;
   }
 
   .section-subheading {
