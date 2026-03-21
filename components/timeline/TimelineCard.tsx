@@ -1,8 +1,8 @@
+import React from "react";
+
 interface TimelineCardProps {
-  title: string;
-  subtitle: string;
-  description: string;
   position: "left" | "right";
+  children?: React.ReactNode;
 }
 
 export function TimelineCard(card: TimelineCardProps) {
@@ -11,7 +11,7 @@ export function TimelineCard(card: TimelineCardProps) {
   return (
     <div
       className={`
-        my-6 w-full md:w-2/5 dark:bg-background-secondary p-6 border-1 border-border
+        my-6 w-full md:w-2/5 dark:bg-background-tertiary p-6 border-1 border-border rounded-xs
         ml-[calc(5%+1rem)]
         ${
           isLeft
@@ -20,11 +20,7 @@ export function TimelineCard(card: TimelineCardProps) {
         }
       `}
     >
-      <div className="font-heading uppercase text-2xl font-medium">
-        {card.title}
-      </div>
-      <div className="font-heading font-normal">{card.subtitle}</div>
-      <div className="font-content font-light pt-1">{card.description}</div>
+      {card.children}
     </div>
   );
 }

@@ -1,27 +1,38 @@
 import { TimelineBar } from "@/components/timeline/TimelineBar";
 import { TimelineItem } from "@/components/timeline/TimelineItem";
+import { siteConfig } from "@/config/site";
+
+function TimelineCardDetails(details: {
+  title: string;
+  subtitle: string;
+  description: string;
+  timeline: string;
+}) {
+  return (
+    <div className="">
+      <div
+        className="border-border border-1 bg-background-secondary rounded-xs tracking-wider
+         uppercase px-2 py-1 font-heading text-sm w-fit md:ml-auto"
+      >
+        {details.timeline}
+      </div>
+      <div className="flex flex-col relative my-4 md:mb-2 md:mt-0 md:-top-2">
+        <div className="font-content text-base uppercase font-medium tracking-widest text-text-muted">
+          {details.subtitle}
+        </div>
+        <div className="font-heading uppercase text-3xl font-normal">
+          {details.title}
+        </div>
+        {/* <div className="font-heading font-normal">{details.subtitle}</div> */}
+      </div>
+
+      <div className="font-content font-light pt-1 leading-8">{details.description}</div>
+    </div>
+  );
+}
 
 export default function Experience() {
-  const array = [
-    {
-      title: "This is title 1",
-      subtitle: "this is subtitle 1",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mauris ante, gravida a ex vel, sodales ullamcorper quam. Morbi et ligula nec eros tempor tincidunt non pellentesque mi. Vivamus eros leo, ultrices quis accumsan eget, hendrerit sit amet augue. Duis blandit malesuada velit, ac vulputate lorem pharetra nec. Proin placerat tristique libero, vitae luctus ex laoreet at. Nullam ullamcorper, leo vel ultricies ullamcorper, ligula arcu lacinia ligula, et imperdiet ante leo mattis tortor. Sed vitae orci vitae quam aliquam pulvinar. Quisque sed ",
-    },
-    {
-      title: "This is title 2",
-      subtitle: "this is subtitle 2",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mauris ante, gravida a ex vel, sodales ullamcorper quam. Morbi et ligula nec eros tempor tincidunt non pellentesque mi. Vivamus eros leo, ultrices quis accumsan eget, hendrerit sit amet augue. Duis blandit malesuada velit, ac vulputate lorem pharetra nec. Proin placerat tristique libero, vitae luctus ex laoreet at. Nullam ullamcorper, leo vel ultricies ullamcorper, ligula arcu lacinia ligula, et imperdiet ante leo mattis tortor. Sed vitae orci vitae quam aliquam pulvinar. Quisque sed ",
-    },
-    {
-      title: "This is title 1",
-      subtitle: "this is subtitle 1",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mauris ante, gravida a ex vel, sodales ullamcorper quam. Morbi et ligula nec eros tempor tincidunt non pellentesque mi. Vivamus eros leo, ultrices quis accumsan eget, hendrerit sit amet augue. Duis blandit malesuada velit, ac vulputate lorem pharetra nec. Proin placerat tristique libero, vitae luctus ex laoreet at. Nullam ullamcorper, leo vel ultricies ullamcorper, ligula arcu lacinia ligula, et imperdiet ante leo mattis tortor. Sed vitae orci vitae quam aliquam pulvinar. Quisque sed ",
-    },
-  ];
+  const experience = siteConfig.experience;
 
   return (
     <section className="section py-16 lg:pt-32" id="experience">
@@ -33,9 +44,16 @@ export default function Experience() {
         <TimelineBar />
 
         {/* Dots + cards */}
-        {array.map((item, i) => (
+        {experience.map((details, i) => (
           <div key={i} className="relative flex items-center">
-            <TimelineItem details={item} index={array.length - i} />
+            <TimelineItem index={experience.length - i}>
+              <TimelineCardDetails
+                description={details.description}
+                subtitle={details.subtitle}
+                title={details.title}
+                timeline={details.timeline || "hello"}
+              />
+            </TimelineItem>
           </div>
         ))}
       </div>
