@@ -27,6 +27,7 @@ export default {
         border: "var(--border)",
         borderHover: "var(--border-hover)",
         inverse: "var(--inverse)",
+        textMuted: "var(--text-muted)"
       },
       typography: {
         DEFAULT: {
