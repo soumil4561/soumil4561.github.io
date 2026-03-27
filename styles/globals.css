@@ -28,6 +28,31 @@
   --font-heading: "Satoshi", sans-serif;
   --font-content: "Chillax", sans-serif;
   --font-mono: "JetbrainsMono";
+
+  --animate-fadeInUp: fadeInUp var(--timing, 1s) ease-out forwards;
+  --animate-fadeInDown: fadeInDown var(--timing, 1s) ease-out forwards;
+
+   @keyframes fadeInUp {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+   }
+
+   @keyframes fadeInDown {
+    0% {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+   }
 }
 
 @layer base {
@@ -86,7 +111,7 @@
   }
 
   .section-heading-supertitle {
-    @apply font-content text-xs mb-4 text-center uppercase font-medium tracking-wide;
+    @apply font-content text-sm mb-4 text-center uppercase font-medium tracking-wide;
   }
 
   .section {
