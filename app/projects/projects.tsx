@@ -6,6 +6,7 @@ import Modal from "@/components/modal/Modal";
 import ProjectContentViewer from "@/app/projects/ProjectContentViewer";
 import Drawer from "@/components/drawer/Drawer";
 import { siteConfig } from "@/config/site";
+import { Reveal } from "@/components/animations/reveal";
 
 export type Project = {
   backgroundImage: string;
@@ -21,21 +22,25 @@ export default function Projects() {
 
   return (
     <section className="section" id="section">
-      <div className="section-heading">Projects</div>
-      <div className="section-heading-subtitle">
-        Things I&apos;ve built along the way
-      </div>
+      <Reveal>
+        <div className="section-heading">Projects</div>
+        <div className="section-heading-subtitle">
+          Things I&apos;ve built along the way
+        </div>
+      </Reveal>
       <div className="w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 py-4">
           {siteConfig.projects.map((project, i) => (
-            <Card
-              key={i}
-              backgroundImage={project.backgroundImage}
-              primaryLink={project.link}
-              subtitle={project.subtitle}
-              title={project.title}
-              onClickExecutor={() => setActiveProject(project)}
-            />
+            <Reveal key={i}>
+              <Card
+                key={i}
+                backgroundImage={project.backgroundImage}
+                primaryLink={project.link}
+                subtitle={project.subtitle}
+                title={project.title}
+                onClickExecutor={() => setActiveProject(project)}
+              />
+            </Reveal>
           ))}
         </div>
       </div>
