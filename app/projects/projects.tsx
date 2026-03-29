@@ -35,7 +35,6 @@ export default function Projects() {
               <Card
                 key={i}
                 backgroundImage={project.backgroundImage}
-                primaryLink={project.link}
                 subtitle={project.subtitle}
                 title={project.title}
                 onClickExecutor={() => setActiveProject(project)}

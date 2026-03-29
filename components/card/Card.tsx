@@ -1,8 +1,6 @@
 export type CardProps = {
   title: string;
   subtitle?: string;
-  primaryLink: string;
-  secondaryLink?: string | null;
   backgroundImage?: string | null;
   className?: string | "";
   onClickExecutor?: (() => void) | null;
@@ -11,12 +9,15 @@ export type CardProps = {
 export default function Card(props: CardProps) {
   return (
     <button
-      className="w-full aspect-[4/3]
+      className={`w-full aspect-[4/3]
     bg-cover bg-center bg-no-repeat
     rounded-xs border border-border
-    flex items-end cursor-pointer"
+    flex items-end cursor-pointer ${props.className}`}
+      data-testid="card"
       style={{
-        backgroundImage: `url(${props.backgroundImage})`,
+        backgroundImage: props.backgroundImage
+          ? `url(${props.backgroundImage})`
+          : undefined,
       }}
       onClick={props.onClickExecutor ?? (() => {})}
     >
