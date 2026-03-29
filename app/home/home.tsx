@@ -10,7 +10,7 @@ export default function Home() {
       <div
         className="
           h-full
-          pt-16 lg:pt-0
+          pt-24 md:pt-16 lg:pt-0
           grid
           grid-rows-[3fr_2fr]
           md:grid-cols-2
