@@ -3,7 +3,7 @@ name: continuous-integration
 on:
   pull-request:
     branches:
-      - main
+      - some-imaginary-branch
 
 permissions:
   contents: read
@@ -38,7 +38,7 @@ jobs:
       - name: Check lint
         run: npm run lint
 
-      - name: Check lint
+      - name: Run test
         run: npm run test:ci
 
       - name: Build static site
