@@ -6,6 +6,7 @@ import ClientProviders from "@/app/providers";
 import Navbar from "@/components/navbar/Navbar";
 import CTA from "@/components/cta/cta";
 import Footer from "@/components/footer/Footer";
+import LayoutWrapper from "@/components/layout/LayoutWrapper";
 
 export const metadata: Metadata = {
   title: {
@@ -55,11 +56,9 @@ export default function RootLayout({
         <ClientProviders>
           <div className="bg-background text-foreground min-h-screen">
             <div className="relative flex flex-col min-h-screen">
-              <div className="h-16" />
-              <main className="container mx-auto max-w-8xl px-6 flex-grow mb-4">
-                <Navbar items={siteConfig.navItems} />
-                {children}
-              </main>
+              {/* <div className="h-16 xl:h-32" /> */}
+              <Navbar items={siteConfig.navItems} />
+              <LayoutWrapper>{children}</LayoutWrapper>
               <CTA />
               <Footer />
             </div>
