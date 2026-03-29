@@ -21,6 +21,7 @@ export default {
         danger: "var(--danger)",
         background: "var(--background)",
         foreground: "var(--foreground)",
+        input: "var(--input)",
         backgroundSecondary: "var(--background-secondary)",
         backgroundTertiary: "var(--background-tertiary)",
         backgroundTertiaryHover: "var(--background-tertiary-hover)",
