@@ -26,7 +26,9 @@ function TimelineCardDetails(details: {
         {/* <div className="font-heading font-normal">{details.subtitle}</div> */}
       </div>
 
-      <div className="font-content font-light pt-1 leading-8">{details.description}</div>
+      <div className="font-content font-light pt-1 leading-8">
+        {details.description}
+      </div>
     </div>
   );
 }
@@ -50,8 +52,8 @@ export default function Experience() {
               <TimelineCardDetails
                 description={details.description}
                 subtitle={details.subtitle}
+                timeline={details.timeline || "some-random-date"}
                 title={details.title}
-                timeline={details.timeline || "hello"}
               />
             </TimelineItem>
           </div>
