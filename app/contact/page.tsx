@@ -180,7 +180,7 @@ export default function Contact() {
         </div>
         <Reveal className="flex-[6] min-w-0">
           <div className="flex flex-col flex-1">
-            <div className="relative border-1 border-border p-8 bg-background-tertiary rounded-xs">
+            <div className="relative border-1 border-border px-6 py-8 md:p-8 bg-background-tertiary rounded-xs">
               <h4 className="uppercase tracking-widest text-xs text-default/50">
                 contact
               </h4>
@@ -193,7 +193,7 @@ export default function Contact() {
                   onSubmit={handleSubmit}
                 >
                   <input
-                    className={`bg-background-secondary px-4 py-3 mb:py-4 rounded-xs outline-0 ${nameInputState && "border-default"}`}
+                    className={`bg-input px-4 py-3 mb:py-4 rounded-xs outline-0 ${nameInputState && "border-default"}`}
                     id="name"
                     name="name"
                     placeholder="Name"
@@ -201,7 +201,7 @@ export default function Contact() {
                   />
                   <div className="relative">
                     <input
-                      className={`bg-background-secondary px-4 py-3 mb:py-4 rounded-xs outline-0 w-full ${
+                      className={`bg-input px-4 py-3 mb:py-4 rounded-xs outline-0 w-full ${
                         emailInputState && "border-default border-1"
                       }`}
                       id="email"
@@ -219,7 +219,7 @@ export default function Contact() {
                   </div>
                   <div className="relative">
                     <textarea
-                      className={`bg-background-secondary px-4 py-3 mb:py-4 rounded-xs outline-0 
+                      className={`bg-input px-4 py-3 mb:py-4 rounded-xs outline-0 
                       w-full ${messageInputState && "border-default border-1"}
                       xl:max-h-[150px] overflow-y-auto`}
                       id="message"
