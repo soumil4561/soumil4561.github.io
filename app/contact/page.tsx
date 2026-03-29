@@ -1,11 +1,13 @@
 "use client";
 import Script from "next/script";
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 
 import { PrimaryButton } from "@/components/button/Button";
 import { siteConfig } from "@/config/site";
 import ArrowIconButton from "@/components/button/ArrowButton";
 import Tooltip from "@/components/tooltip/Tooltip";
+import { Reveal } from "@/components/animations/reveal";
 
 type TurnstileState = "idle" | "verified" | "error" | "expired";
 
@@ -160,122 +162,130 @@ export default function Contact() {
   }
 
   return (
-    <section className="section w-11/12 mx-auto" id="contact">
+    <section className="section mx-auto" id="contact">
       <Script
         src="https://challenges.cloudflare.com/turnstile/v0/api.js"
         strategy="afterInteractive"
       />
       <div className="flex flex-row justify-center items-stretch w-full gap-4">
-        {/* <div className="hidden lg:flex flex-1">
-          <div className="relative w-full">
+        <div className="flex-[4] hidden xl:block">
+          <div className="relative w-full h-full min-h-[400px]">
             <Image
-              alt="some photo"
-              src="/phone.jpg"
               fill
-              className="object-contain"
+              alt="some photo"
+              className="object-cover rounded-xs"
+              src="/picture7.png"
             />
           </div>
-        </div> */}
-
-        <div className="flex flex-col flex-1">
-          <div className="border-1 border-border p-8 bg-background-tertiary">
-            <h4 className="uppercase tracking-widest text-xs font-light">
-              contact
-            </h4>
-            <h2 className="font-heading text-4xl my-2">
-              Let&apos;s get in touch
-            </h2>
-
-            <form
-              className="flex flex-col gap-4 mt-8 mb-4"
-              onSubmit={handleSubmit}
-            >
-              <input
-                className={`bg-background-tertiary p-4 rounded-xs outline-0 ${nameInputState && "border-default border-1"}`}
-                id="name"
-                name="name"
-                placeholder="Name"
-                onChange={handleInput}
-              />
+        </div>
+        <Reveal className="flex-[6] min-w-0">
+          <div className="flex flex-col flex-1">
+            <div className="relative border-1 border-border p-8 bg-background-tertiary rounded-xs">
+              <h4 className="uppercase tracking-widest text-xs text-default/50">
+                contact
+              </h4>
+              <h2 className="font-heading text-[33px] mb:my-2 font-light">
+                Let&apos;s get in touch
+              </h2>
               <div className="relative">
-                <input
-                  className={`bg-background-tertiary p-4 rounded-xs outline-0 w-full ${
-                    emailInputState && "border-default border-1"
-                  }`}
-                  id="email"
-                  name="email"
-                  placeholder="Email"
-                  onChange={handleInput}
-                />
-
-                <Tooltip
-                  isVisible={showEmailTooltip}
-                  onDismiss={() => setShowEmailTooltip(false)}
+                <form
+                  className="relative z-20 flex flex-col gap-4 my-4 md:mt-8 font-heading text-lg md:text-xl overflow-visible"
+                  onSubmit={handleSubmit}
                 >
-                  <span>Please enter an email address.</span>
-                </Tooltip>
+                  <input
+                    className={`bg-background-secondary px-4 py-3 mb:py-4 rounded-xs outline-0 ${nameInputState && "border-default"}`}
+                    id="name"
+                    name="name"
+                    placeholder="Name"
+                    onChange={handleInput}
+                  />
+                  <div className="relative">
+                    <input
+                      className={`bg-background-secondary px-4 py-3 mb:py-4 rounded-xs outline-0 w-full ${
+                        emailInputState && "border-default border-1"
+                      }`}
+                      id="email"
+                      name="email"
+                      placeholder="Email"
+                      onChange={handleInput}
+                    />
+
+                    <Tooltip
+                      isVisible={showEmailTooltip}
+                      onDismiss={() => setShowEmailTooltip(false)}
+                    >
+                      <span>Please enter an email address.</span>
+                    </Tooltip>
+                  </div>
+                  <div className="relative">
+                    <textarea
+                      className={`bg-background-secondary px-4 py-3 mb:py-4 rounded-xs outline-0 
+                      w-full ${messageInputState && "border-default border-1"}
+                      xl:max-h-[150px] overflow-y-auto`}
+                      id="message"
+                      name="message"
+                      placeholder="Message"
+                      rows={2}
+                      onChange={handleInput}
+                    />
+                    <Tooltip
+                      isVisible={showMessageTooltip}
+                      onDismiss={() => setShowMessageTooltip(false)}
+                    >
+                      <span>Message size should be greater than 10</span>
+                    </Tooltip>
+                  </div>
+                  <div className="w-full flex justify-center sm:block">
+                    <div
+                      className="cf-turnstile"
+                      data-callback="onTurnstileSuccess"
+                      data-error-callback="onTurnstileError"
+                      data-expired-callback="onTurnstileExpired"
+                      data-sitekey={`${process.env.NEXT_PUBLIC_TURNSTILE_SITEKEY}`}
+                      data-size="flexible"
+                      data-theme="auto"
+                    />
+                  </div>
+                  {submitSuccess && (
+                    <p className="text-default text-sm">{submitSuccess}</p>
+                  )}
+                  {submitError && (
+                    <div className="text-red-300 text-sm">{submitError}</div>
+                  )}
+                  <PrimaryButton
+                    className="font-bold py-3 text-lg font-heading"
+                    disabled={turnstileState !== "verified"}
+                    id="contact-submit-btn"
+                    text={loading ? "Sending..." : "Send Message"}
+                    type="submit"
+                  />
+                </form>
               </div>
-              <div className="relative">
-                <textarea
-                  className={`bg-background-tertiary p-4 rounded-xs outline-0 w-full ${messageInputState && "border-default border-1"}`}
-                  id="message"
-                  name="message"
-                  placeholder="Message"
-                  rows={4}
-                  onChange={handleInput}
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-4">
+              <ArrowIconButton link={siteConfig.links.mail} type="mail" />
+              <ArrowIconButton
+                link={siteConfig.links.linkedin}
+                type="linkedin"
+              />
+              <ArrowIconButton link={siteConfig.links.github} type="github" />
+
+              <div className="md:col-span-3 flex justify-center gap-4">
+                <ArrowIconButton
+                  className="w-full"
+                  link={siteConfig.links.pgp}
+                  type="pgp"
                 />
-                <Tooltip
-                  isVisible={showMessageTooltip}
-                  onDismiss={() => setShowMessageTooltip(false)}
-                >
-                  <span>Message size should be greater than 10</span>
-                </Tooltip>
+                <ArrowIconButton
+                  className="w-full"
+                  link={siteConfig.links.resume}
+                  type="resume"
+                />
               </div>
-
-              <div
-                className="cf-turnstile"
-                data-callback="onTurnstileSuccess"
-                data-error-callback="onTurnstileError"
-                data-expired-callback="onTurnstileExpired"
-                data-sitekey={`${process.env.NEXT_PUBLIC_TURNSTILE_SITEKEY}`}
-                data-size="flexible"
-                data-theme="auto"
-              />
-              {submitSuccess && (
-                <p className="text-default text-sm">{submitSuccess}</p>
-              )}
-              {submitError && (
-                <div className="text-red-300 text-sm">{submitError}</div>
-              )}
-              <PrimaryButton
-                className="font-medium"
-                disabled={turnstileState !== "verified"}
-                id="contact-submit-btn"
-                text={loading ? "Sending..." : "Send Message"}
-                type="submit"
-              />
-            </form>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-2">
-            <ArrowIconButton link={siteConfig.links.mail} type="mail" />
-            <ArrowIconButton link={siteConfig.links.linkedin} type="linkedin" />
-            <ArrowIconButton link={siteConfig.links.github} type="github" />
-
-            <div className="md:col-span-3 flex justify-center gap-4">
-              <ArrowIconButton
-                className="w-full"
-                link={siteConfig.links.pgp}
-                type="pgp"
-              />
-              <ArrowIconButton
-                className="w-full"
-                link={siteConfig.links.resume}
-                type="resume"
-              />
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -1,14 +1,8 @@
 import { TimelineCard } from "./TimelineCard";
 
-interface TimelineCardData {
-  title: string;
-  subtitle: string;
-  description: string;
-}
-
 interface TimelineItem {
   index: number;
-  details: TimelineCardData;
+  children: React.ReactNode;
 }
 
 export function TimelineItem(item: TimelineItem) {
@@ -33,12 +27,9 @@ export function TimelineItem(item: TimelineItem) {
       </div>
 
       {/* Card beside the dot */}
-      <TimelineCard
-        description={item.details.description}
-        position={item.index % 2 === 0 ? "left" : "right"}
-        subtitle={item.details.subtitle}
-        title={item.details.title}
-      />
+      <TimelineCard position={item.index % 2 === 0 ? "left" : "right"}>
+        {item.children}
+      </TimelineCard>
     </div>
   );
 }

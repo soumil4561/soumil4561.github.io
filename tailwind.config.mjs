@@ -24,9 +24,12 @@ export default {
         backgroundSecondary: "var(--background-secondary)",
         backgroundTertiary: "var(--background-tertiary)",
         backgroundTertiaryHover: "var(--background-tertiary-hover)",
+        backgroundTertiaryGlassFrom: "var(--background-tertiary-glass-from)",
+        backgroundTertiaryGlassTo: "var(--background-tertiary-glass-to)",
         border: "var(--border)",
         borderHover: "var(--border-hover)",
         inverse: "var(--inverse)",
+        textMuted: "var(--text-muted)"
       },
       typography: {
         DEFAULT: {

@@ -9,7 +9,7 @@ export default function About() {
       <div className="section-heading-subtitle">A brief introduction</div>
       <div className="flex flex-col-reverse lg:flex-row items-stretch w-full gap-8 pt-4 lg:pt-0">
         {/* Text column */}
-        <div className="w-full  flex font-content justify-center whitespace-pre-line">
+        <div className="w-full flex font-content justify-center whitespace-pre-line">
           {siteConfig.extendedDescription}
         </div>
 
