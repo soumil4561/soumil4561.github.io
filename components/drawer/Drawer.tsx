@@ -2,9 +2,9 @@ import useEscapeKeyToClose from "@/hooks/useEscapeToClose";
 
 export type DrawerProps = {
   direction: "top" | "bottom" | "left" | "right";
-  children: React.ReactNode;
+  children?: React.ReactNode;
   onClose: () => void;
-  className: string;
+  className?: string;
 };
 
 const drawerVariants = {
@@ -32,11 +32,16 @@ export default function Drawer(props: DrawerProps) {
   useEscapeKeyToClose(props.onClose);
 
   return (
-    <div className={`fixed inset-0 z-50 ${props.className}`}>
+    <div
+      aria-modal="true"
+      className={`fixed inset-0 z-50 ${props.className}`}
+      role="dialog"
+    >
       {/* Backdrop */}
       <button
         aria-label="Close"
         className="absolute inset-0 bg-black/40"
+        data-testid="drawer-backdrop"
         onClick={props.onClose}
       />
 
@@ -47,6 +52,7 @@ export default function Drawer(props: DrawerProps) {
           ${variant.position}
           ${variant.size}
         `}
+        data-testid="drawer-content"
       >
         {props.children}
       </div>

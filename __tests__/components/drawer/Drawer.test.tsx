@@ -2,16 +2,16 @@ import { describe, expect, test, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import Modal from "@/components/modal/Modal";
+import Drawer from "@/components/drawer/Drawer";
 
 const setup = ({ children = <h1>test-content</h1>, ...props }: any = {}) => {
   const user = userEvent.setup();
   const onClose = vi.fn();
 
   render(
-    <Modal onClose={onClose} {...props}>
+    <Drawer direction="top" onClose={onClose} {...props}>
       {children}
-    </Modal>,
+    </Drawer>,
   );
 
   return {
@@ -20,7 +20,7 @@ const setup = ({ children = <h1>test-content</h1>, ...props }: any = {}) => {
   };
 };
 
-describe("Modal", () => {
+describe("Drawer", () => {
   test("renders children", () => {
     setup();
 
@@ -34,15 +34,15 @@ describe("Modal", () => {
   test("renders with dialog role", () => {
     setup();
 
-    const modal = screen.getByRole("dialog");
+    const drawer = screen.getByRole("dialog");
 
-    expect(modal).toBeInTheDocument();
+    expect(drawer).toBeInTheDocument();
   });
 
   test("clicking outside triggers onClose", async () => {
     const { user, onClose } = setup();
 
-    const backdrop = screen.getByTestId("modal-backdrop");
+    const backdrop = screen.getByTestId("drawer-backdrop");
 
     await user.click(backdrop);
 
@@ -52,7 +52,7 @@ describe("Modal", () => {
   test("clicking inside does NOT trigger onClose", async () => {
     const { user, onClose } = setup();
 
-    const content = screen.getByTestId("modal-content");
+    const content = screen.getByTestId("drawer-content");
 
     await user.click(content);
 
@@ -78,18 +78,18 @@ describe("Modal", () => {
   test("adds extra classnames when passed", () => {
     setup({ className: "test-class" });
 
-    const modal = screen.getByRole("dialog");
+    const drawer = screen.getByRole("dialog");
 
-    expect(modal).toHaveClass("test-class");
+    expect(drawer).toHaveClass("test-class");
   });
 
   test("renders without children", () => {
     const onClose = vi.fn();
 
-    render(<Modal onClose={onClose} />);
+    render(<Drawer direction="top" onClose={onClose} />);
 
-    const modal = screen.getByRole("dialog");
+    const drawer = screen.getByRole("dialog");
 
-    expect(modal).toBeInTheDocument();
+    expect(drawer).toBeInTheDocument();
   });
 });
