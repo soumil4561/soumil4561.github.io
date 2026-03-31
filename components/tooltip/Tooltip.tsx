@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 
 export type TooltipProps = {
-  children: React.ReactNode;
-  isVisible: Boolean;
+  children?: React.ReactNode;
+  isVisible: boolean;
   onDismiss: () => void;
 };
 
@@ -30,7 +30,10 @@ export default function Tooltip(props: TooltipProps) {
   }
 
   return (
-    <div className="absolute border-border border-1 rounded-xl z-10 bg-background-secondary p-4 text-center text-sm whitespace-nowrap">
+    <div
+      className="absolute border-border border-1 rounded-xl z-10 bg-background-secondary p-4 text-center text-sm whitespace-nowrap"
+      data-testid="tooltip"
+    >
       {props.children}
     </div>
   );
