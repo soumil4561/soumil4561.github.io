@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import CloseButton from "@/components/button/CloseButton";
 import NavItem from "@/components/navbar/NavItem";
 import NavbarLogo from "@/components/navbar/NavbarLogo";
+import { PrimaryButton } from "../button/Button";
 
 export type NavbarProps = {
   items: NavItemParams[];
@@ -80,6 +81,9 @@ export default function Navbar(props: NavbarProps) {
             );
         })}
       </div>
+
+      {/* Mobile CTA */}
+      {/* <PrimaryButton type="button" text=""></PrimaryButton> */}
 
       {/* Mobile Hamburger */}
       <CloseButton open={open} onToggle={() => setOpen((open) => !open)} />
