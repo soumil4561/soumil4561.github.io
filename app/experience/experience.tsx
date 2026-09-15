@@ -41,22 +41,18 @@ export default function Experience() {
       <div className="section-heading">Experience</div>
       <div className="section-heading-subtitle">My journey so far</div>
 
-      <div className="relative w-full flex flex-col justify-between">
-        {/* Timeline vertical line */}
+      <div className="relative w-full">
         <TimelineBar />
 
-        {/* Dots + cards */}
         {experience.map((details, i) => (
-          <div key={i} className="relative flex items-center">
-            <TimelineItem index={experience.length - i}>
-              <TimelineCardDetails
-                description={details.description}
-                subtitle={details.subtitle}
-                timeline={details.timeline || "some-random-date"}
-                title={details.title}
-              />
-            </TimelineItem>
-          </div>
+          <TimelineItem key={i} index={experience.length - i}>
+            <TimelineCardDetails
+              description={details.description}
+              subtitle={details.subtitle}
+              timeline={details.timeline || "some-random-date"}
+              title={details.title}
+            />
+          </TimelineItem>
         ))}
       </div>
     </section>

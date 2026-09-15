@@ -80,10 +80,10 @@ I am passionate about continuous learning, exploring new technologies, and shari
     {
       backgroundImage: "/blog/first-post/dock.png",
       link: "https://www.google.com",
-      subtitle: "web app",
-      title: "Stone",
-      description: "This is the stone project",
-      techTags: ["NextJS", "NodeJS", "redis", "postgressql", "GCP"],
+      subtitle: "Terminal App",
+      title: "Eos (Ongoing)",
+      description: "A terminal editor written in Rust",
+      techTags: ["Rust", "Crossterm", "redis", "postgressql", "GCP"],
     },
     {
       backgroundImage: "/blog/first-post/dock.png",
@@ -95,11 +95,11 @@ I am passionate about continuous learning, exploring new technologies, and shari
     },
     {
       backgroundImage: "/blog/first-post/dock.png",
-      link: "https://www.google.com",
-      subtitle: "web app",
-      title: "Stone",
-      description: "This is the stone project",
-      techTags: ["NextJS", "NodeJS", "redis", "postgressql", "GCP"],
+      link: "https://github.com/soumil4561/turnstile-email-proxy",
+      subtitle: "serverless proxy",
+      title: "Aegis",
+      description: "A secure, serverless email proxy designed to protect contact forms from spam. Built on Cloudflare Workers, it seamlessly integrates Turnstile for robust bot validation and routes legitimate messages to providers like Brevo for reliable delivery.",
+      techTags: ["Cloudflare Turnstile", "HonoJS", "Cloudflare Workers", "TypeScript"],
     },
     {
       backgroundImage: "/blog/first-post/dock.png",
