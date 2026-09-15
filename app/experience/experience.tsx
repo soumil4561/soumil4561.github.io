@@ -16,7 +16,7 @@ function TimelineCardDetails(details: {
       >
         {details.timeline}
       </div>
-      <div className="flex flex-col relative my-4 md:mb-2 md:mt-0 md:-top-2">
+      <div className="flex flex-col relative my-4 lg:mb-2 lg:mt-0 lg:-top-2">
         <div className="font-content text-base uppercase font-medium tracking-widest text-text-muted">
           {details.subtitle}
         </div>
