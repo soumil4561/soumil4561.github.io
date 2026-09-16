@@ -3,8 +3,8 @@ import * as SVGKit from "@soumil4561/svg-kit";
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "welcome...",
-  description: "Hey, I'm Soumil, Welcome",
+  name: "Soumil Singh",
+  description: "Welcome to the personal portfolio of Soumil [Last Name]. Discover my featured projects, articles, thoughts, and what I am currently building.",
   navItems: [
     {
       label: "Resume",
