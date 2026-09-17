@@ -28,9 +28,7 @@ export function Reveal({
       animation = "animation-fadeInDown";
       break;
     default:
-      console.warn(
-        "Incorrect animation direction passed to component, defaulting to the upper direction",
-      );
+      //"Incorrect animation direction passed to component, defaulting to the upper direction",
       animation = "animate-fadeInUp";
       break;
   }

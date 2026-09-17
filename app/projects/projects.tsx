@@ -14,6 +14,7 @@ export type Project = {
   subtitle: string;
   title: string;
   description: string;
+  tag?: string;
   techTags: string[];
 };
 
@@ -36,6 +37,7 @@ export default function Projects() {
                 key={i}
                 backgroundImage={project.backgroundImage}
                 subtitle={project.subtitle}
+                tag={project.tag}
                 title={project.title}
                 onClickExecutor={() => setActiveProject(project)}
               />

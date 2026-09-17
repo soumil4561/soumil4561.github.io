@@ -1,6 +1,7 @@
 export type CardProps = {
   title: string;
   subtitle?: string;
+  tag?: string;
   backgroundImage?: string | null;
   className?: string | "";
   onClickExecutor?: (() => void) | null;
@@ -12,7 +13,7 @@ export default function Card(props: CardProps) {
       className={`w-full aspect-[4/3]
     bg-cover bg-center bg-no-repeat
     rounded-xs border border-border
-    flex items-end cursor-pointer ${props.className}`}
+    flex flex-col justify-between cursor-pointer ${props.className}`}
       data-testid="card"
       style={{
         backgroundImage: props.backgroundImage
@@ -21,11 +22,22 @@ export default function Card(props: CardProps) {
       }}
       onClick={props.onClickExecutor ?? (() => {})}
     >
-      <div className="mx-4 mb-2 border border-border z-40 w-full flex flex-row justify-between items-center p-2 bg-background-tertiary backdrop-blur-[6.8px]">
-        <h2 className="font-heading text-2xl">{props.title}</h2>
-        <h3 className="font-heading uppercase font-medium text-sm tracking-widest">
-          {props.subtitle}
-        </h3>
+      <div className="mt-2 mx-2 flex flex-row-reverse">
+        <h4
+          className={`font-heading uppercase font-medium text-xs tracking-widest border border-border rounded-xs z-40 p-2
+                  bg-background-tertiary backdrop-blur-[6.8px] w-fit
+                ${!props.tag ? "invisible" : ""}`}
+        >
+          {props.tag}
+        </h4>
+      </div>
+      <div className="mb-2 mx-2 flex flex-row">
+        <div className="flex flex-row border border-border z-40 w-full justify-between items-center p-2 bg-background-tertiary backdrop-blur-[6.8px]">
+          <h2 className="font-heading text-2xl">{props.title}</h2>
+          <h3 className="font-heading uppercase font-medium text-sm tracking-widest">
+            {props.subtitle}
+          </h3>
+        </div>
       </div>
     </button>
   );

@@ -4,7 +4,8 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "Soumil Singh",
-  description: "Welcome to the personal portfolio of Soumil [Last Name]. Discover my featured projects, articles, thoughts, and what I am currently building.",
+  description:
+    "Welcome to the personal portfolio of Soumil [Last Name]. Discover my featured projects, articles, thoughts, and what I am currently building.",
   navItems: [
     {
       label: "Resume",
@@ -81,9 +82,10 @@ I am passionate about continuous learning, exploring new technologies, and shari
       backgroundImage: "/blog/first-post/dock.png",
       link: "https://www.google.com",
       subtitle: "Terminal App",
-      title: "Eos (Ongoing)",
+      title: "Eos",
       description: "A terminal editor written in Rust",
       techTags: ["Rust", "Crossterm", "redis", "postgressql", "GCP"],
+      tag: "Ongoing",
     },
     {
       backgroundImage: "/blog/first-post/dock.png",
@@ -98,8 +100,14 @@ I am passionate about continuous learning, exploring new technologies, and shari
       link: "https://github.com/soumil4561/turnstile-email-proxy",
       subtitle: "serverless proxy",
       title: "Aegis",
-      description: "A secure, serverless email proxy designed to protect contact forms from spam. Built on Cloudflare Workers, it seamlessly integrates Turnstile for robust bot validation and routes legitimate messages to providers like Brevo for reliable delivery.",
-      techTags: ["Cloudflare Turnstile", "HonoJS", "Cloudflare Workers", "TypeScript"],
+      description:
+        "A secure, serverless email proxy designed to protect contact forms from spam. Built on Cloudflare Workers, it seamlessly integrates Turnstile for robust bot validation and routes legitimate messages to providers like Brevo for reliable delivery.",
+      techTags: [
+        "Cloudflare Turnstile",
+        "HonoJS",
+        "Cloudflare Workers",
+        "TypeScript",
+      ],
     },
     {
       backgroundImage: "/blog/first-post/dock.png",

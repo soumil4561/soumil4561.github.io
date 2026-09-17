@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 import CloseButton from "@/components/button/CloseButton";
 import NavItem from "@/components/navbar/NavItem";
 import NavbarLogo from "@/components/navbar/NavbarLogo";
-import { PrimaryButton } from "../button/Button";
 
 export type NavbarProps = {
   items: NavItemParams[];
