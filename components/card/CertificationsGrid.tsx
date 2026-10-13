@@ -17,7 +17,7 @@ const INITIAL_COUNT = 6;
 
 function CertificationCard({ cert }: { cert: Certification }) {
   return (
-    <div className="flex shrink-0 w-[374px] max-w-full flex-col justify-between gap-8 p-8 md:p-10 lg:p-12 border-border border-1 rounded-xs bg-background-tertiary hover:bg-background-tertiary-hover hover:border-border-hover duration-500 ease-in-out">
+    <div className="flex shrink-0 w-[374px] max-w-full flex-col justify-between gap-8 p-8 md:p-10 lg:p-12 border-border border-1 rounded-xs bg-background-tertiary">
       <div>
         <div className="font-heading text-sm uppercase font-light tracking-widest text-default">
           {cert.issuer} · {cert.year}
