@@ -25,7 +25,7 @@ export function Reveal({
       animation = "animate-fadeInUp";
       break;
     case "down":
-      animation = "animation-fadeInDown";
+      animation = "animate-fadeInDown";
       break;
     default:
       //"Incorrect animation direction passed to component, defaulting to the upper direction",

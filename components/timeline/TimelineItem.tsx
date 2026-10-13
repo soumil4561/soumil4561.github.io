@@ -1,14 +1,12 @@
 import { TimelineCard } from "./TimelineCard";
 
 interface TimelineItem {
+  /** Position in the list, only used to alternate the card side. */
   index: number;
+  icon: React.ReactNode;
   children: React.ReactNode;
 }
 export function TimelineItem(item: TimelineItem) {
-  let index = item.index.toString();
-
-  if (item.index < 9) index = "0" + index;
-
   const isLeft = item.index % 2 === 0;
 
   return (
@@ -39,8 +37,8 @@ export function TimelineItem(item: TimelineItem) {
         "
       >
         <div className="py-4 bg-background rounded-full">
-          <div className="font-heading h-3 w-3 p-5 rounded-full bg-background-secondary border border-border flex items-center justify-center">
-            {index}
+          <div className="font-heading h-10 w-10 shrink-0 rounded-full bg-background-secondary border border-border flex items-center justify-center">
+            {item.icon}
           </div>
         </div>
       </div>

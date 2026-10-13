@@ -156,3 +156,10 @@
     @apply border-1 border-border bg-background-secondary p-4
   }
 }
+
+/* hide the navbar, CTA and footer on the 404 page */
+body:has(#not-found) #navbar,
+body:has(#not-found) #cta,
+body:has(#not-found) #footer {
+  display: none;
+}

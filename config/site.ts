@@ -67,14 +67,31 @@ I am a computer science graduate from the Indian Institute of Information Techno
 I work primarily with Node.js, Spring Boot, PostgreSQL, and Cloud — building services that balance reliability and performance. Lately, I’ve been exploring lower-level C/C++ to better understand system internals and performance optimization.\n
 Outside of work, I enjoy building side projects that challenge my problem-solving skills — from creating an image-processor in go and  SDL-based graphics projects. I am also interested in system design and architecture\n
 I am passionate about continuous learning, exploring new technologies, and sharing knowledge through writing and collaboration. I’m always excited to connect with like-minded engineers, contribute to open-source projects, and take on interesting challenges.`,
+  // dates are "YYYY-MM"; a null endDate means ongoing
   education: [
     {
       degree: "B.Tech.",
       institution: "Indian Insitute of Information Technology, Vadodara",
       major: "Computer Science and Engineering",
-      currentlyOngoing: false,
-      startYear: 2021,
-      endYear: 2025,
+      startDate: "2021-08",
+      endDate: "2025-06",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mauris ante, gravida a ex vel, sodales ullamcorper quam. Morbi et ligula nec eros tempor tincidunt non pellentesque mi.",
+    },
+  ],
+  // TODO: replace placeholders with real certifications
+  certifications: [
+    {
+      name: "Professional Cloud Architect",
+      issuer: "Google Cloud",
+      year: 2025,
+      link: "https://www.credly.com/",
+    },
+    {
+      name: "Solutions Architect Associate",
+      issuer: "AWS",
+      year: 2025,
+      link: "https://www.credly.com/",
     },
   ],
   projects: [
@@ -89,11 +106,12 @@ I am passionate about continuous learning, exploring new technologies, and shari
     },
     {
       backgroundImage: "/blog/first-post/dock.png",
-      link: "https://www.google.com",
-      subtitle: "web app",
-      title: "Stone",
+      link: "https://github.com/soumil4561/soumil4561.github.io",
+      subtitle: "portfolio",
+      title: "Atlas",
       description: "This is the stone project",
-      techTags: ["NextJS", "NodeJS", "redis", "postgressql", "GCP"],
+      techTags: ["NextJS", "Tailwind CSS", "TypeScript", "Github Pages"],
+      tag: "Ongoing",
     },
     {
       backgroundImage: "/blog/first-post/dock.png",
@@ -197,21 +215,18 @@ I am passionate about continuous learning, exploring new technologies, and shari
     {
       title: "Software Engineer",
       subtitle: "Searce",
+      startDate: "2025-07",
+      endDate: null,
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mauris ante, gravida a ex vel, sodales ullamcorper quam. Morbi et ligula nec eros tempor tincidunt non pellentesque mi. Vivamus eros leo, ultrices quis accumsan eget, hendrerit sit amet augue. Duis blandit malesuada velit, ac vulputate lorem pharetra nec. Proin placerat tristique libero, vitae luctus ex laoreet at. Nullam ullamcorper, leo vel ultricies ullamcorper, ligula arcu lacinia ligula, et imperdiet ante leo mattis tortor. Sed vitae orci vitae quam aliquam pulvinar. Quisque sed ",
-      timeline: "July 2025-Present",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mauris ante, gravida a ex vel, sodales ullamcorper quam. Morbi et ligula nec eros tempor tincidunt non pellentesque mi.",
     },
     {
-      title: "This is title 2",
-      subtitle: "this is subtitle 2",
+      title: "Software Engineering Intern",
+      subtitle: "Searce",
+      startDate: "2025-01",
+      endDate: "2025-06",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mauris ante, gravida a ex vel, sodales ullamcorper quam. Morbi et ligula nec eros tempor tincidunt non pellentesque mi. Vivamus eros leo, ultrices quis accumsan eget, hendrerit sit amet augue. Duis blandit malesuada velit, ac vulputate lorem pharetra nec. Proin placerat tristique libero, vitae luctus ex laoreet at. Nullam ullamcorper, leo vel ultricies ullamcorper, ligula arcu lacinia ligula, et imperdiet ante leo mattis tortor. Sed vitae orci vitae quam aliquam pulvinar. Quisque sed ",
-    },
-    {
-      title: "This is title 1",
-      subtitle: "this is subtitle 1",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mauris ante, gravida a ex vel, sodales ullamcorper quam. Morbi et ligula nec eros tempor tincidunt non pellentesque mi. Vivamus eros leo, ultrices quis accumsan eget, hendrerit sit amet augue. Duis blandit malesuada velit, ac vulputate lorem pharetra nec. Proin placerat tristique libero, vitae luctus ex laoreet at. Nullam ullamcorper, leo vel ultricies ullamcorper, ligula arcu lacinia ligula, et imperdiet ante leo mattis tortor. Sed vitae orci vitae quam aliquam pulvinar. Quisque sed ",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mauris ante, gravida a ex vel, sodales ullamcorper quam. Morbi et ligula nec eros tempor tincidunt non pellentesque mi.",
     },
   ],
 };

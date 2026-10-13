@@ -1,60 +1,58 @@
+import { BriefcaseIcon, GraduationCapIcon } from "@phosphor-icons/react";
+
 import { TimelineBar } from "@/components/timeline/TimelineBar";
 import { TimelineItem } from "@/components/timeline/TimelineItem";
+import {
+  EducationCard,
+  ExperienceCard,
+} from "@/components/timeline/TimelineEntryCard";
 import { siteConfig } from "@/config/site";
-
-function TimelineCardDetails(details: {
-  title: string;
-  subtitle: string;
-  description: string;
-  timeline: string;
-}) {
-  return (
-    <div className="">
-      <div
-        className="border-border border-1 bg-background-secondary rounded-xs tracking-wider
-         uppercase px-2 py-1 font-heading text-sm w-fit md:ml-auto"
-      >
-        {details.timeline}
-      </div>
-      <div className="flex flex-col relative my-4 lg:mb-2 lg:mt-0 lg:-top-2">
-        <div className="font-content text-base uppercase font-medium tracking-widest text-text-muted">
-          {details.subtitle}
-        </div>
-        <div className="font-heading uppercase text-3xl font-normal">
-          {details.title}
-        </div>
-        {/* <div className="font-heading font-normal">{details.subtitle}</div> */}
-      </div>
-
-      <div className="font-content font-light pt-1 leading-8">
-        {details.description}
-      </div>
-    </div>
-  );
-}
+import { getTimelineEntries } from "@/lib/timeline";
+import { CertificationsGrid } from "@/components/card/CertificationsGrid";
 
 export default function Experience() {
-  const experience = siteConfig.experience;
+  const entries = getTimelineEntries();
+  const certifications = siteConfig.certifications;
 
   return (
     <section className="section py-16 lg:pt-32" id="experience">
-      <div className="section-heading">Experience</div>
-      <div className="section-heading-subtitle">My journey so far</div>
+      <div className="section-heading">Experience &amp; Education</div>
+      <div className="section-heading-subtitle">
+        Work, study, and certifications
+      </div>
 
       <div className="relative w-full">
         <TimelineBar />
 
-        {experience.map((details, i) => (
-          <TimelineItem key={i} index={experience.length - i}>
-            <TimelineCardDetails
-              description={details.description}
-              subtitle={details.subtitle}
-              timeline={details.timeline || "some-random-date"}
-              title={details.title}
-            />
+        {entries.map((entry, i) => (
+          <TimelineItem
+            key={i}
+            icon={
+              entry.kind === "education" ? (
+                <GraduationCapIcon size={22} />
+              ) : (
+                <BriefcaseIcon size={22} />
+              )
+            }
+            index={entries.length - i}
+          >
+            {entry.kind === "education" ? (
+              <EducationCard {...entry} />
+            ) : (
+              <ExperienceCard {...entry} />
+            )}
           </TimelineItem>
         ))}
       </div>
+
+      {certifications.length > 0 && (
+        <>
+          <h3 className="font-heading text-2xl mt-16 mb-6 w-full text-center">
+            Certifications
+          </h3>
+          <CertificationsGrid certifications={certifications} />
+        </>
+      )}
     </section>
   );
 }
