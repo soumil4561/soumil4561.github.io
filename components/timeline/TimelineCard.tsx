@@ -11,7 +11,7 @@ export function TimelineCard({ children }: TimelineCardProps) {
     <Reveal>
       <div
         className="
-          my-6 p-6 w-full
+          my-6 p-8 md:p-10 lg:p-12 w-full
           border border-border rounded-xs
           dark:bg-background-tertiary
         "

@@ -13,7 +13,10 @@ export default function CTA() {
   }
 
   return (
-    <div className="w-full flex items-center justify-center p-10 md:pt-20 md:px-40 bg-background-tertiary border-t-1 border-border">
+    <div
+      className="w-full flex items-center justify-center p-10 md:pt-20 md:px-40 bg-background-tertiary border-t-1 border-border"
+      id="cta"
+    >
       <div className="w-full flex flex-col items-center justify-center">
         <h6 className="section-heading-supertitle">Something on your mind?</h6>
         <Reveal>

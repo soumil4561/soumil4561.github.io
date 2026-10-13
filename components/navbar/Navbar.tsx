@@ -55,6 +55,7 @@ export default function Navbar(props: NavbarProps) {
             : "lg:opacity-100 lg:translate-y-0"
         }
       `}
+      id="navbar"
     >
       {/* Logo */}
       <NavbarLogo />
