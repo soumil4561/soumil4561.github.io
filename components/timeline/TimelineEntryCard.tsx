@@ -15,7 +15,7 @@ function TimelineEntryCard(props: TimelineEntryCardProps) {
       <div className="border-border border-1 bg-background-secondary rounded-xs tracking-wider uppercase px-2 py-1 font-heading text-sm w-fit md:ml-auto">
         {formatRange(props.startDate, props.endDate)}
       </div>
-      <div className="flex flex-col my-4 lg:mb-2">
+      <div className="flex flex-col my-4 lg:mb-2 lg:mt-0">
         <div className="font-content text-base uppercase font-medium tracking-widest text-text-muted">
           {props.subtitle}
         </div>
