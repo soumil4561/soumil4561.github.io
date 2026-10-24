@@ -218,16 +218,24 @@ I am passionate about continuous learning, exploring new technologies, and shari
       startDate: "2025-07",
       endDate: null,
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mauris ante, gravida a ex vel, sodales ullamcorper quam. Morbi et ligula nec eros tempor tincidunt non pellentesque mi.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mauris ante, gravida a ex vel, sodales ullamcorper quam. Morbi et ligula nec eros tempor tincidunt non pellentesque mi. Vivamus eros leo, ultrices quis accumsan eget, hendrerit sit amet augue. Duis blandit malesuada velit, ac vulputate lorem pharetra nec. Proin placerat tristique libero, vitae luctus ex laoreet at. Nullam ullamcorper, leo vel ultricies ullamcorper, ligula arcu lacinia ligula, et imperdiet ante leo mattis tortor. Sed vitae orci vitae quam aliquam pulvinar. Quisque sed ",
+      timeline: "July 2025-Present",
     },
     {
-      title: "Software Engineering Intern",
-      subtitle: "Searce",
+      title: "This is title 2",
+      subtitle: "this is subtitle 2",
+      timeline: "Jan 2025-Jun 2025",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mauris ante, gravida a ex vel, sodales ullamcorper quam. Morbi et ligula nec eros tempor tincidunt non pellentesque mi. Vivamus eros leo, ultrices quis accumsan eget, hendrerit sit amet augue. Duis blandit malesuada velit, ac vulputate lorem pharetra nec. Proin placerat tristique libero, vitae luctus ex laoreet at. Nullam ullamcorper, leo vel ultricies ullamcorper, ligula arcu lacinia ligula, et imperdiet ante leo mattis tortor. Sed vitae orci vitae quam aliquam pulvinar. Quisque sed ",
       startDate: "2025-01",
       endDate: "2025-06",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mauris ante, gravida a ex vel, sodales ullamcorper quam. Morbi et ligula nec eros tempor tincidunt non pellentesque mi.",
     },
+    // {
+    //   title: "This is title 1",
+    //   subtitle: "this is subtitle 1",
+    //   description:
+    //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mauris ante, gravida a ex vel, sodales ullamcorper quam. Morbi et ligula nec eros tempor tincidunt non pellentesque mi. Vivamus eros leo, ultrices quis accumsan eget, hendrerit sit amet augue. Duis blandit malesuada velit, ac vulputate lorem pharetra nec. Proin placerat tristique libero, vitae luctus ex laoreet at. Nullam ullamcorper, leo vel ultricies ullamcorper, ligula arcu lacinia ligula, et imperdiet ante leo mattis tortor. Sed vitae orci vitae quam aliquam pulvinar. Quisque sed ",
+    // },
   ],
 };
 

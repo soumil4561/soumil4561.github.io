@@ -6,7 +6,6 @@ import ArrowScrollButton from "@/components/button/ArrowScrollButton";
 export default function Home() {
   return (
     <section className="h-[100svh]" id="home">
-      {/* // <section className="h-[calc(100svh-4rem)] xl:h-[calc(100svh-8rem)]"> */}
       <div
         className="
           h-full
@@ -22,10 +21,11 @@ export default function Home() {
         <div className="relative w-full h-full">
           <Image
             fill
-            priority
-            alt="idk... dont have that many photos...."
+            alt="Home Page"
             className="object-cover rounded-xs"
-            src="picture4.jpg"
+            priority={true}
+            src="/picture4.jpg"
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
 
@@ -39,7 +39,7 @@ export default function Home() {
               className="pt-4 items-center"
               iconToTextRelativeDirection="left"
               target={{ id: "experience" }}
-              text="expore more"
+              text="explore more"
             />
           </div>
         </Reveal>

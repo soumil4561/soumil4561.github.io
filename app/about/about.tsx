@@ -14,14 +14,15 @@ export default function About() {
         </div>
 
         {/* Image column */}
-        <div className="w-full min-h-[300px] flex">
+        <div className="w-full h-auto max-w-full overflow-hidden rounded-xl">
           <Image
             priority
-            alt="idk... another photo of mine ig"
-            className="object-cover w-full h-full"
-            height={1000}
-            src="picture2.jpg"
-            width={1000}
+            alt="About me"
+            src="/picture8.jpeg"
+            width={1200}
+            height={1600}
+            sizes="(max-width: 768px) 100vw, 1200px"
+            className="w-full h-auto object-contain"
           />
         </div>
       </div>

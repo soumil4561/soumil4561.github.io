@@ -40,10 +40,10 @@ function CertificationCard({ cert }: { cert: Certification }) {
 function CertificationRow({ cert }: { cert: Certification }) {
   return (
     <Link
-      href={cert.link}
-      target="_blank"
-      rel="noopener noreferrer"
       className="group flex flex-row items-center justify-between gap-4 p-4 border-border border-1 rounded-xs bg-background-tertiary hover:bg-background-tertiary-hover hover:border-border-hover duration-500"
+      href={cert.link}
+      rel="noopener noreferrer"
+      target="_blank"
     >
       <div className="min-w-0">
         <div className="font-heading text-lg leading-tight">{cert.name}</div>
@@ -90,10 +90,10 @@ export function CertificationsGrid({
 
       {collapsible && (
         <button
-          type="button"
           aria-expanded={expanded}
-          onClick={() => setExpanded((e) => !e)}
           className="font-heading uppercase tracking-widest text-sm px-6 py-3 border-border border-1 rounded-xs hover:border-border-hover hover:bg-background-tertiary-hover duration-200 cursor-pointer"
+          type="button"
+          onClick={() => setExpanded((e) => !e)}
         >
           {expanded
             ? "Show less"
