@@ -27,7 +27,7 @@ export default function FooterBadge({ type, link, hidden }: FooterBadgeProps) {
       logo = <FilePdfIcon size={iconSize} />;
       break;
     default:
-      null;
+      break;
   }
 
   return (

@@ -4,7 +4,12 @@ import userEvent from "@testing-library/user-event";
 
 import Drawer from "@/components/drawer/Drawer";
 
-const setup = ({ children = <h1>test-content</h1>, ...props }: any = {}) => {
+type SetupProps = React.ComponentProps<typeof Drawer>;
+
+const setup = ({
+  children = <h1>test-content</h1>,
+  ...props
+}: Partial<SetupProps> = {}) => {
   const user = userEvent.setup();
   const onClose = vi.fn();
 

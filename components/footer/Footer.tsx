@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 
-import FooterBadge from "./FooterBadge";
-
 import ArrowScrollButton from "@/components/button/ArrowScrollButton";
 import { siteConfig } from "@/config/site";
+
+import FooterBadge from "./FooterBadge";
 
 export default function Footer() {
   const socialLinks = siteConfig.footer.socialLinks;

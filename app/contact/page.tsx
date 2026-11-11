@@ -17,9 +17,9 @@ export default function Contact() {
 
   const [loading, setLoading] = useState(false);
   const tokenRef = useRef<string | null>(null);
-  const [nameInputState, setNameInputState] = useState<Boolean>(false);
-  const [emailInputState, setEmailInputState] = useState<Boolean>(false);
-  const [messageInputState, setMessageInputState] = useState<Boolean>(false);
+  const [nameInputState, setNameInputState] = useState<boolean>(false);
+  const [emailInputState, setEmailInputState] = useState<boolean>(false);
+  const [messageInputState, setMessageInputState] = useState<boolean>(false);
   const [turnstileState, setTurnstileState] = useState<TurnstileState>("idle");
   const [showEmailTooltip, setShowEmailTooltip] = useState(false);
   const [showMessageTooltip, setShowMessageTooltip] = useState(false);
@@ -27,17 +27,17 @@ export default function Contact() {
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   useEffect(() => {
-    (window as any).onTurnstileSuccess = (token: string) => {
+    window.onTurnstileSuccess = (token: string) => {
       tokenRef.current = token;
       setTurnstileState("verified");
     };
 
-    (window as any).onTurnstileError = () => {
+    window.onTurnstileError = () => {
       tokenRef.current = null;
       setTurnstileState("error");
     };
 
-    (window as any).onTurnstileExpired = () => {
+    window.onTurnstileExpired = () => {
       tokenRef.current = null;
       setTurnstileState("expired");
     };

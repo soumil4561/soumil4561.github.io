@@ -24,8 +24,8 @@ export default function Home() {
             alt="Home Page"
             className="object-cover rounded-xs"
             priority={true}
-            src="/picture4.jpg"
             sizes="(max-width: 768px) 100vw, 50vw"
+            src="/picture4.jpg"
           />
         </div>
 

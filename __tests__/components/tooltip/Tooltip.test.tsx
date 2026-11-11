@@ -3,14 +3,17 @@ import { render, screen } from "@testing-library/react";
 
 import Tooltip from "@/components/tooltip/Tooltip";
 
+type SetupProps = React.ComponentProps<typeof Tooltip>;
+
 const setup = ({
   children = <span>test-content</span>,
+  isVisible = true,
   ...props
-}: any = {}) => {
+}: Partial<SetupProps> = {}) => {
   const onDismiss = vi.fn();
 
   render(
-    <Tooltip onDismiss={onDismiss} {...props}>
+    <Tooltip isVisible={isVisible} onDismiss={onDismiss} {...props}>
       {children}
     </Tooltip>,
   );

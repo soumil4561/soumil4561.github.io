@@ -4,7 +4,12 @@ import userEvent from "@testing-library/user-event";
 
 import Modal from "@/components/modal/Modal";
 
-const setup = ({ children = <h1>test-content</h1>, ...props }: any = {}) => {
+type SetupProps = React.ComponentProps<typeof Modal>;
+
+const setup = ({
+  children = <h1>test-content</h1>,
+  ...props
+}: Partial<SetupProps> = {}) => {
   const user = userEvent.setup();
   const onClose = vi.fn();
 

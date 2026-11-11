@@ -3,10 +3,10 @@ export const dynamicParams = false;
 import { serialize } from "next-mdx-remote-client/serialize";
 import { notFound } from "next/navigation";
 
-import { ShowBlogInfo } from "./blog-info";
-
 import MDXRenderer from "@/components/mdx/MDXRenderer";
 import { getAllPosts, getPostBySlug } from "@/lib/blog/posts";
+
+import { ShowBlogInfo } from "./blog-info";
 
 export async function generateStaticParams() {
   const posts = await getAllPosts();

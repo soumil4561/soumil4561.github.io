@@ -29,6 +29,28 @@
   --font-content: "Chillax", sans-serif;
   --font-mono: "JetbrainsMono";
 
+    /* Custom semantic colors */
+  --color-default: var(--default);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+
+  --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+  --color-background-tertiary: var(--background-tertiary);
+  --color-background-tertiary-glass-from: var(--background-tertiary-glass-from);
+  --color-background-tertiary-glass-to: var(--background-tertiary-glass-to);
+  --color-background-tertiary-hover: var(--background-tertiary-hover);
+
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
+  --color-foreground: var(--foreground);
+  --color-inverse: var(--inverse);
+  --color-text-muted: var(--text-muted);
+
   --animate-fadeInUp: fadeInUp var(--timing, 1s) ease-out forwards;
   --animate-fadeInDown: fadeInDown var(--timing, 1s) ease-out forwards;
 

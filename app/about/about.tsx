@@ -18,11 +18,11 @@ export default function About() {
           <Image
             priority
             alt="About me"
-            src="/picture8.jpeg"
-            width={1200}
+            className="w-full h-auto object-contain"
             height={1600}
             sizes="(max-width: 768px) 100vw, 1200px"
-            className="w-full h-auto object-contain"
+            src="/picture8.jpeg"
+            width={1200}
           />
         </div>
       </div>
